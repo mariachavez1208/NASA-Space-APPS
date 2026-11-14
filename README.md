@@ -8,7 +8,7 @@ de la misión **NASA-ISRO NISAR** para mostrar los cambios en el territorio de *
 
 - Mostrar los cambios de superficie con un mapa interactivo y una línea de tiempo.
 - Explicar la ciencia con lenguaje sencillo, íconos y colores claros.
-- Sitio en inglés con opción de español, narración en voz alta y, a futuro, Q'eqchi' y Garífuna.
+- Sitio en inglés con opción de español y Q'eqchi' (parcial), narración en voz alta y, a futuro, Garífuna.
 - Permitir que investigadores y comunidades suban nuevos datos de forma colaborativa.
 
 ## Estructura
@@ -55,17 +55,22 @@ Cambia esos valores y se aplican en todo el sitio.
 
 ## Idiomas
 
-El sitio está **en inglés por defecto**. El botón 🌐 del encabezado cambia la página a **español**
-(y de regreso), y la elección se recuerda al pasar a otras páginas.
+El sitio está **en inglés por defecto**. Los botones **EN · ES · Q'EQ** del encabezado cambian la página
+a inglés, español o Q'eqchi', y la elección se recuerda al pasar a otras páginas.
 
-- Todos los textos están en `js/i18n.js` (`en` y `es`). En el HTML se marcan con `data-i18n="clave"`.
+- Todos los textos están en `js/i18n.js` (`en`, `es` y `kek`). En el HTML se marcan con `data-i18n="clave"`.
 - Para agregar un texto nuevo: escríbelo en inglés en el HTML con su `data-i18n` y agrega la clave en `en` y `es`.
+- **Q'eqchi' (`kek`)**: solo menú, títulos y palabras clave, verificados en el vocabulario
+  *Ch'ina Tusleb' Aatin Q'eqchi' – Kaxlan Aatin* (Carlos H. Cu Cab y Mario R. Cu Cab, Universidad Rafael Landívar, 1998).
+  Lo que no tiene traducción en `kek` se muestra en español, con un aviso arriba de la página.
+  Los párrafos completos deben traducirlos o revisarlos hablantes de Q'eqchi'.
 
 ## Pendiente
 
 - [ ] Paleta de colores final
 - [ ] Procesar los archivos NISAR completos para detectar cambios (no solo vistas previas)
-- [ ] Traducciones a Q'eqchi' y Garífuna con hablantes de la comunidad
+- [ ] Párrafos completos en Q'eqchi' revisados por hablantes de la comunidad
+- [ ] Traducción a Garífuna
 - [ ] Backend para recibir los aportes del formulario
 - [ ] Vista "antes y después" de imágenes de radar
 

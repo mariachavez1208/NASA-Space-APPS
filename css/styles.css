@@ -174,6 +174,7 @@ a:hover { color: var(--color-primario); }
   color: var(--color-superficie);
   text-decoration: none;
   font: 700 1.3rem var(--fuente-titulos);
+  white-space: nowrap;
 }
 .logo:hover { color: var(--color-superficie); }
 .logo__icono { font-size: 1.6rem; }
@@ -195,24 +196,39 @@ a:hover { color: var(--color-primario); }
 .nav__lista a:hover,
 .nav__lista a[aria-current="page"] { border-bottom-color: var(--color-acento); }
 
-.boton-idioma {
+.selector-idioma {
   display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 1rem;
   border: 2px solid var(--color-acento);
   border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.selector-idioma button {
+  padding: 0.4rem 0.75rem;
+  border: none;
   background: transparent;
   color: var(--color-superficie);
-  font: 700 0.95rem var(--fuente-titulos);
+  font: 700 0.85rem var(--fuente-titulos);
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.15s ease, color 0.15s ease;
 }
-.boton-idioma:hover {
+.selector-idioma button + button { border-left: 1px solid color-mix(in srgb, var(--color-acento) 60%, transparent); }
+.selector-idioma button:hover { background: color-mix(in srgb, var(--color-acento) 25%, transparent); }
+.selector-idioma button[aria-pressed="true"] {
   background: var(--color-acento);
   color: var(--color-texto);
 }
+
+/* Aviso que aparece en modo Q'eqchi' */
+.aviso-idioma {
+  margin: 0;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-size: 0.95rem;
+  background: color-mix(in srgb, var(--color-acento) 22%, var(--color-fondo));
+  border-bottom: 1px solid var(--color-borde);
+}
+.aviso-idioma[hidden] { display: none; }
 
 .nav__toggle {
   display: none;
@@ -498,7 +514,10 @@ a:hover { color: var(--color-primario); }
   }
   .nav.abierto { display: block; }
   .nav__lista { flex-direction: column; gap: 0.9rem; }
-  .boton-idioma { margin-left: auto; }
+  .selector-idioma { margin-left: auto; }
+  .logo { font-size: 1.1rem; }
+  .logo__icono { font-size: 1.3rem; }
+  .selector-idioma button { padding: 0.35rem 0.55rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

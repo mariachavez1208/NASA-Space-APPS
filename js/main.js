@@ -13,9 +13,11 @@
   }
 
   /* ---------- Idioma ----------
-     El sitio está en inglés. El botón #boton-idioma cambia entre
-     inglés y español, y la elección se guarda para las demás páginas. */
-  const botonIdioma = document.getElementById("boton-idioma");
+     El sitio está en inglés. Los botones [data-idioma] cambian entre
+     inglés (en), español (es) y Q'eqchi' (kek); la elección se guarda
+     para las demás páginas. */
+  const botonesIdioma = document.querySelectorAll("[data-idioma]");
+  const avisoIdioma = document.getElementById("aviso-idioma");
   const CLAVE_IDIOMA = "idioma-sitio";
 
   function aplicarIdioma(cod) {
@@ -35,22 +37,24 @@
       });
     });
 
-    document.documentElement.lang = IDIOMA_ACTUAL;
-    // El botón muestra el OTRO idioma, así que su lang es el contrario
-    if (botonIdioma) botonIdioma.lang = IDIOMA_ACTUAL === "en" ? "es" : "en";
+    // En Q'eqchi' gran parte del texto sigue en español
+    document.documentElement.lang = IDIOMA_ACTUAL === "en" ? "en" : "es";
+    botonesIdioma.forEach((b) => {
+      b.setAttribute("aria-pressed", b.dataset.idioma === IDIOMA_ACTUAL);
+    });
+    if (avisoIdioma) avisoIdioma.hidden = IDIOMA_ACTUAL !== "kek";
 
     // Avisar a otros scripts (mapa, galería) para que se redibujen
     document.dispatchEvent(new CustomEvent("idioma-cambiado"));
   }
 
-  if (botonIdioma) {
-    botonIdioma.addEventListener("click", () => {
+  botonesIdioma.forEach((boton) => {
+    boton.addEventListener("click", () => {
       if (window.speechSynthesis) speechSynthesis.cancel();
-      const nuevo = IDIOMA_ACTUAL === "en" ? "es" : "en";
-      storage(localStorage, CLAVE_IDIOMA, nuevo);
-      aplicarIdioma(nuevo);
+      storage(localStorage, CLAVE_IDIOMA, boton.dataset.idioma);
+      aplicarIdioma(boton.dataset.idioma);
     });
-  }
+  });
 
   // Esperar a que carguen los demás scripts antes de traducir
   document.addEventListener("DOMContentLoaded", () => {

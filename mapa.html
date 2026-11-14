@@ -25,12 +25,15 @@
           <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribute</a></li>
         </ul>
       </nav>
-      <button type="button" class="boton-idioma" id="boton-idioma" lang="es" data-i18n-attr="aria-label:comun.cambiar_idioma_aria" aria-label="Ver la página en español">
-        <span aria-hidden="true">🌐</span> <span data-i18n="comun.cambiar_idioma">Español</span>
-      </button>
+      <div class="selector-idioma" role="group" aria-label="Page language" data-i18n-attr="aria-label:comun.idiomas_aria">
+        <button type="button" data-idioma="en" lang="en" title="English" aria-pressed="true">EN</button>
+        <button type="button" data-idioma="es" lang="es" title="Español" aria-pressed="false">ES</button>
+        <button type="button" data-idioma="kek" lang="kek" title="Q'eqchi'" aria-pressed="false">Q'EQ</button>
+      </div>
     </div>
   </header>
 
+  <p class="aviso-idioma" id="aviso-idioma" data-i18n="comun.aviso_kek" hidden></p>
   <main id="contenido">
     <section class="seccion">
       <div class="contenedor">

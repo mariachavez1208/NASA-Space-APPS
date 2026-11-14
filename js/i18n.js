@@ -3,8 +3,12 @@
    - En el HTML: data-i18n="clave" (texto), data-i18n-html="clave"
      (texto con etiquetas), data-i18n-attr="atributo:clave".
    - En JS: t("clave").
-   - El sitio está en inglés por defecto; el botón de idioma cambia a
-     español. Q'eqchi' y Garífuna: pendientes con hablantes de la comunidad.
+   - El sitio está en inglés por defecto. Los botones de idioma cambian
+     entre inglés (en), español (es) y Q'eqchi' (kek).
+   - Q'eqchi': solo palabras y títulos cortos, tomados del vocabulario
+     "Ch'ina Tusleb' Aatin Q'eqchi' – Kaxlan Aatin" (Cu Cab y Cu Cab,
+     Universidad Rafael Landívar, 1998). Lo que no está en "kek" se
+     muestra en español. Los párrafos deben revisarlos hablantes de Q'eqchi'.
    ========================================================= */
 
 const TRADUCCIONES = {
@@ -12,8 +16,7 @@ const TRADUCCIONES = {
     /* Comunes */
     "comun.saltar": "Saltar al contenido",
     "comun.menu": "Abrir menú",
-    "comun.cambiar_idioma": "English",
-    "comun.cambiar_idioma_aria": "View the page in English",
+    "comun.idiomas_aria": "Idioma de la página",
     "comun.escuchar": "🔊 Escuchar",
     "comun.pie_desc": "Proyecto para el NASA Space Apps Challenge. Datos de radar de la misión NASA-ISRO NISAR, explicados para todo público.",
     "comun.pie_explorar": "Explorar",
@@ -60,7 +63,7 @@ const TRADUCCIONES = {
     "idiomas.titulo": "La información de tu territorio, en tu idioma",
     "idiomas.texto": "Queremos que las familias de Izabal puedan leer y escuchar esta información en su propio idioma.",
     "idiomas.es": "Disponible.",
-    "idiomas.q": "Traducción en proceso con hablantes de la comunidad.",
+    "idiomas.q": "Disponible en parte: menú, títulos y palabras clave. Los textos largos se revisarán con hablantes de la comunidad.",
     "idiomas.cab": "Traducción en proceso con hablantes de la comunidad.",
     "idiomas.en": "Disponible, para investigadores y visitantes.",
     "cta.titulo": "¿Tienes datos o conoces tu comunidad?",
@@ -163,8 +166,7 @@ const TRADUCCIONES = {
   en: {
     "comun.saltar": "Skip to content",
     "comun.menu": "Open menu",
-    "comun.cambiar_idioma": "Español",
-    "comun.cambiar_idioma_aria": "Ver la página en español",
+    "comun.idiomas_aria": "Page language",
     "comun.escuchar": "🔊 Listen",
     "comun.pie_desc": "A project for the NASA Space Apps Challenge. Radar data from the NASA-ISRO NISAR mission, explained for everyone.",
     "comun.pie_explorar": "Explore",
@@ -210,7 +212,7 @@ const TRADUCCIONES = {
     "idiomas.titulo": "Information about your land, in your language",
     "idiomas.texto": "We want families in Izabal to be able to read and listen to this information in their own language.",
     "idiomas.es": "Available.",
-    "idiomas.q": "Translation in progress with community speakers.",
+    "idiomas.q": "Partly available: menu, titles and key words. Longer texts will be reviewed with community speakers.",
     "idiomas.cab": "Translation in progress with community speakers.",
     "idiomas.en": "Available, for researchers and visitors.",
     "cta.titulo": "Do you have data or know your community?",
@@ -305,11 +307,38 @@ const TRADUCCIONES = {
     "form.enviar": "Send contribution",
     "form.error": "⚠️ Please check that all required fields are filled in.",
     "form.ok": "✅ Thank you! We received your contribution and will review it soon."
+  },
+
+  /* Q'eqchi' — palabras verificadas en el vocabulario de la URL (1998) */
+  kek: {
+    "comun.idiomas_aria": "Aatinob'aal",
+    "comun.aviso_kek": "Q'eqchi': los títulos y palabras clave están en Q'eqchi' según el vocabulario Q'eqchi'–Español de la Universidad Rafael Landívar (1998). Los textos largos se muestran en español mientras los revisan hablantes de la comunidad.",
+    "comun.escuchar": "🔊 Ab'ink",
+    "nav.inicio": "Xtiklajik",
+    "nav.mapa": "Reetalil li ruuchich'och'",
+    "nav.aprende": "Tzolok",
+    "nav.contribuir": "Tenq'ank",
+    "tema.mineria": "Miin",
+    "tema.palma": "Kala' (palma africana)",
+    "tema.bosque": "K'iche'",
+    "tema.agua": "Ha', saab'",
+    "aprende.comunidades_t": "K'aleb'aal",
+    "glosario.satelite_t": "Aj b'e chahim",
+    "glosario.humedal_t": "Saab' (humedal)",
+    "galeria.satelite": "Aj b'e chahim",
+    "form.nombre": "K'ab'a'",
+    "form.otro": "Jalan",
+    "form.enviar": "Taqlank",
+    "form.ok": "✅ ¡B'anyox! Recibimos tu aporte y lo revisaremos pronto."
   }
 };
 
 // Idioma para la narración en voz alta
-const VOZ_IDIOMA = { es: "es-GT", en: "en-US" };
+// (no hay voz en Q'eqchi'; se usa la de español de Guatemala)
+const VOZ_IDIOMA = { es: "es-GT", en: "en-US", kek: "es-GT" };
+
+// Si falta un texto, de qué idioma se toma
+const RESPALDO = { en: ["en"], es: ["es", "en"], kek: ["kek", "es", "en"] };
 
 // Idioma por defecto del sitio: inglés
 const IDIOMA_POR_DEFECTO = "en";
@@ -317,12 +346,19 @@ const IDIOMA_POR_DEFECTO = "en";
 // Idioma actual (lo actualiza main.js)
 let IDIOMA_ACTUAL = IDIOMA_POR_DEFECTO;
 
-// Traduce una clave; si no existe en el idioma, usa inglés
+// Traduce una clave usando el idioma actual y sus respaldos
 function t(clave) {
-  return (TRADUCCIONES[IDIOMA_ACTUAL] || {})[clave] || TRADUCCIONES.en[clave] || clave;
+  for (const cod of RESPALDO[IDIOMA_ACTUAL] || ["en"]) {
+    const texto = (TRADUCCIONES[cod] || {})[clave];
+    if (texto) return texto;
+  }
+  return clave;
 }
 
-// Elige el texto de un objeto { es, en }
+// Elige el texto de un objeto { en, es, kek }
 function tObj(obj) {
-  return obj[IDIOMA_ACTUAL] || obj.en;
+  for (const cod of RESPALDO[IDIOMA_ACTUAL] || ["en"]) {
+    if (obj[cod]) return obj[cod];
+  }
+  return obj.en;
 }
