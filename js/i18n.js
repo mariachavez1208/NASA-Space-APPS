@@ -25,7 +25,7 @@ const TRADUCCIONES = {
     "nav.contribuir": "Contribuir",
 
     /* Inicio */
-    "inicio.titulo_pagina": "Izabal Vivo · Mira cómo cambia tu territorio desde el espacio",
+    "inicio.titulo_pagina": "Mira cómo cambia tu territorio desde el espacio",
     "hero.etiqueta": "NASA Space Apps Challenge · Guatemala",
     "hero.titulo": "Mira cómo cambia tu territorio desde el espacio",
     "hero.texto": "Usamos satélites de radar como NISAR, de la NASA y la India, para ver los cambios en los bosques, ríos y suelos de Izabal. Explicado de forma sencilla, en tu idioma y abierto para todas y todos.",
@@ -175,7 +175,7 @@ const TRADUCCIONES = {
     "nav.aprende": "Learn",
     "nav.contribuir": "Contribute",
 
-    "inicio.titulo_pagina": "Izabal Vivo · See how your land changes from space",
+    "inicio.titulo_pagina": "See how your land changes from space",
     "hero.etiqueta": "NASA Space Apps Challenge · Guatemala",
     "hero.titulo": "See how your land changes from space",
     "hero.texto": "We use radar satellites like NISAR, from NASA and India, to see changes in the forests, rivers and soils of Izabal. Explained simply, in your language, and open to everyone.",
