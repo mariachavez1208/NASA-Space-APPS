@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
+*.log
+.env
+# Datos SAR pesados: no subir al repo
+data/raw/
+*.h5
+*.tif
+*.tiff

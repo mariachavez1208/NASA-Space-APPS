@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa · Izabal Vivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <header class="encabezado">
+    <div class="contenedor encabezado__fila">
+      <a class="logo" href="index.html"><span class="logo__icono" aria-hidden="true">🛰️</span> Izabal Vivo</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <ul class="nav__lista">
+          <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+          <li><a href="mapa.html" aria-current="page" data-i18n="nav.mapa">Mapa</a></li>
+          <li><a href="aprende.html" data-i18n="nav.aprende">Aprende</a></li>
+          <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribuir</a></li>
+        </ul>
+      </nav>
+      <label class="idioma">
+        <span aria-hidden="true">🌐</span>
+        <select id="selector-idioma" aria-label="Elegir idioma">
+          <option value="es">Español</option>
+          <option value="q">Q'eqchi'</option>
+          <option value="cab">Garífuna</option>
+          <option value="en">English</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="contenido" class="seccion">
+    <div class="contenedor">
+      <span class="etiqueta">Explora Izabal</span>
+      <h1 data-i18n="mapa.titulo">Mapa de cambios en el territorio</h1>
+      <p class="seccion__intro">
+        Elige qué quieres ver y mueve la barra de años para comparar.
+        Toca cualquier punto para saber qué cambió en ese lugar.
+      </p>
+
+      <div class="mapa-layout">
+        <aside class="panel-capas" aria-label="Opciones del mapa">
+          <fieldset>
+            <legend>¿Qué quieres ver?</legend>
+            <div id="lista-capas"></div>
+          </fieldset>
+
+          <div class="linea-tiempo">
+            <label for="anio">Año</label>
+            <div class="linea-tiempo__valor" id="anio-valor">2026</div>
+            <input type="range" id="anio" min="2016" max="2026" step="1" value="2026">
+          </div>
+
+          <p class="aviso" style="margin-top: 1.5rem">
+            ⚠️ Por ahora el mapa muestra <strong>datos de ejemplo</strong>.
+            Pronto conectaremos los datos reales del radar NISAR.
+          </p>
+        </aside>
+
+        <div>
+          <div id="mapa" class="mapa" role="region" aria-label="Mapa interactivo de Izabal"></div>
+          <div class="leyenda" id="leyenda"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p class="pie__legal">Izabal Vivo · NASA Space Apps Challenge · Datos abiertos · Hecho en Guatemala 🇬🇹</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/datos.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/mapa.js"></script>
+</body>
+</html>

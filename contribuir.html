@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contribuir · Izabal Vivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <header class="encabezado">
+    <div class="contenedor encabezado__fila">
+      <a class="logo" href="index.html"><span class="logo__icono" aria-hidden="true">🛰️</span> Izabal Vivo</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <ul class="nav__lista">
+          <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+          <li><a href="mapa.html" data-i18n="nav.mapa">Mapa</a></li>
+          <li><a href="aprende.html" data-i18n="nav.aprende">Aprende</a></li>
+          <li><a href="contribuir.html" aria-current="page" data-i18n="nav.contribuir">Contribuir</a></li>
+        </ul>
+      </nav>
+      <label class="idioma">
+        <span aria-hidden="true">🌐</span>
+        <select id="selector-idioma" aria-label="Elegir idioma">
+          <option value="es">Español</option>
+          <option value="q">Q'eqchi'</option>
+          <option value="cab">Garífuna</option>
+          <option value="en">English</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="contenido" class="seccion">
+    <div class="contenedor">
+      <span class="etiqueta">Ciencia colaborativa</span>
+      <h1 data-i18n="contribuir.titulo">Comparte datos sobre Izabal</h1>
+      <p class="seccion__intro">
+        Si eres investigador, estudiante o parte de una comunidad, puedes aportar datos,
+        estudios o reportes. Revisamos cada aporte antes de publicarlo en el mapa.
+      </p>
+
+      <form class="formulario" id="form-contribuir" novalidate>
+        <div class="campo">
+          <label for="nombre">Tu nombre o el de tu organización</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <div class="campo">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" required>
+          <small>Solo lo usamos para contactarte sobre tu aporte.</small>
+        </div>
+
+        <div class="campo">
+          <label for="tipo">¿Qué tipo de aporte es?</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Elige una opción</option>
+            <option value="sar">Datos de radar (SAR / NISAR)</option>
+            <option value="estudio">Estudio o artículo científico</option>
+            <option value="campo">Observación de campo / reporte comunitario</option>
+            <option value="fotos">Fotografías</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="tema">Tema</label>
+          <select id="tema" name="tema">
+            <option value="mineria">Minería</option>
+            <option value="palma">Palma africana</option>
+            <option value="bosque">Bosques</option>
+            <option value="agua">Agua y humedales</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="descripcion">Cuéntanos de qué trata</label>
+          <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
+          <small>Escribe con palabras sencillas: qué observaste, dónde y cuándo.</small>
+        </div>
+
+        <div class="campo">
+          <label for="archivo">Archivo</label>
+          <div class="zona-archivo">
+            <p>📁 Arrastra tu archivo aquí o selecciónalo</p>
+            <input type="file" id="archivo" name="archivo" accept=".tif,.tiff,.h5,.geojson,.kml,.csv,.pdf,.jpg,.png">
+            <small>Formatos: GeoTIFF, HDF5, GeoJSON, KML, CSV, PDF, imágenes.</small>
+          </div>
+        </div>
+
+        <label class="capa">
+          <input type="checkbox" id="licencia" required>
+          Acepto que mi aporte se publique como dato abierto.
+        </label>
+
+        <div>
+          <button class="boton boton--primario" type="submit">Enviar aporte</button>
+        </div>
+        <p id="mensaje-form" role="status"></p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p class="pie__legal">Izabal Vivo · NASA Space Apps Challenge · Datos abiertos · Hecho en Guatemala 🇬🇹</p>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

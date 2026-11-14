@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprende · Izabal Vivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <header class="encabezado">
+    <div class="contenedor encabezado__fila">
+      <a class="logo" href="index.html"><span class="logo__icono" aria-hidden="true">🛰️</span> Izabal Vivo</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <ul class="nav__lista">
+          <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+          <li><a href="mapa.html" data-i18n="nav.mapa">Mapa</a></li>
+          <li><a href="aprende.html" aria-current="page" data-i18n="nav.aprende">Aprende</a></li>
+          <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribuir</a></li>
+        </ul>
+      </nav>
+      <label class="idioma">
+        <span aria-hidden="true">🌐</span>
+        <select id="selector-idioma" aria-label="Elegir idioma">
+          <option value="es">Español</option>
+          <option value="q">Q'eqchi'</option>
+          <option value="cab">Garífuna</option>
+          <option value="en">English</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="seccion">
+      <div class="contenedor">
+        <span class="etiqueta">Sin palabras difíciles</span>
+        <h1 data-i18n="aprende.titulo">Aprende cómo vemos la Tierra desde el espacio</h1>
+        <p class="seccion__intro">
+          No necesitas ser científico para entender esto. Aquí te lo explicamos paso a paso.
+        </p>
+
+        <div class="rejilla">
+          <article class="tarjeta" id="que-es-nisar">
+            <div class="tarjeta__icono" aria-hidden="true">🛰️</div>
+            <h3>¿Qué es NISAR?</h3>
+            <p>
+              Es un satélite que hicieron juntos la NASA (Estados Unidos) y la ISRO (India).
+              Da vueltas alrededor de la Tierra y la observa una y otra vez para ver qué cambia.
+            </p>
+            <button class="boton-escuchar" data-leer="#que-es-nisar" aria-pressed="false">🔊 Escuchar</button>
+          </article>
+
+          <article class="tarjeta" id="que-es-radar">
+            <div class="tarjeta__icono" aria-hidden="true">📡</div>
+            <h3>¿Qué es un radar?</h3>
+            <p>
+              El satélite envía ondas hacia la tierra y escucha el "eco" que regresa,
+              como cuando gritas en una cueva. Por eso puede ver aunque esté nublado o sea de noche.
+            </p>
+            <button class="boton-escuchar" data-leer="#que-es-radar" aria-pressed="false">🔊 Escuchar</button>
+          </article>
+
+          <article class="tarjeta" id="como-cambios">
+            <div class="tarjeta__icono" aria-hidden="true">🔍</div>
+            <h3>¿Cómo se ven los cambios?</h3>
+            <p>
+              Un bosque, un campo de palma y un suelo sin plantas devuelven ecos distintos.
+              Si el eco de un lugar cambia con los años, sabemos que algo pasó ahí.
+            </p>
+            <button class="boton-escuchar" data-leer="#como-cambios" aria-pressed="false">🔊 Escuchar</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion--alterna">
+      <div class="contenedor">
+        <h2>¿Por qué importa en Izabal?</h2>
+        <div class="rejilla">
+          <article class="tarjeta tarjeta--impacto">
+            <div class="tarjeta__icono" aria-hidden="true">⛏️</div>
+            <h3>Minería</h3>
+            <p>Remover tierra y roca cambia el suelo y puede afectar el agua del lago y los ríos que usan las comunidades.</p>
+          </article>
+          <article class="tarjeta tarjeta--impacto">
+            <div class="tarjeta__icono" aria-hidden="true">🌴</div>
+            <h3>Palma africana</h3>
+            <p>Cuando la selva se reemplaza por un solo tipo de planta, se pierden animales, plantas y fuentes de agua.</p>
+          </article>
+          <article class="tarjeta">
+            <div class="tarjeta__icono" aria-hidden="true">👨‍👩‍👧</div>
+            <h3>Las comunidades</h3>
+            <p>Conocer estos cambios ayuda a las familias a cuidar su territorio y a tomar decisiones informadas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Palabras que vas a encontrar</h2>
+        <div class="glosario" style="max-width: 760px">
+          <details>
+            <summary>Satélite</summary>
+            <p>Una máquina que da vueltas alrededor de la Tierra en el espacio y toma información de ella.</p>
+          </details>
+          <details>
+            <summary>SAR (Radar de Apertura Sintética)</summary>
+            <p>El tipo de radar que usa NISAR. Combina muchos ecos para formar una imagen muy detallada del suelo.</p>
+          </details>
+          <details>
+            <summary>Deforestación</summary>
+            <p>Cuando se cortan o queman árboles y el bosque desaparece.</p>
+          </details>
+          <details>
+            <summary>Humedal</summary>
+            <p>Terreno que pasa con agua buena parte del año, como pantanos y orillas del lago. Es hogar de muchos animales.</p>
+          </details>
+          <details>
+            <summary>Datos abiertos</summary>
+            <p>Información que cualquier persona puede ver, usar y compartir gratis.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p class="pie__legal">Izabal Vivo · NASA Space Apps Challenge · Datos abiertos · Hecho en Guatemala 🇬🇹</p>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
