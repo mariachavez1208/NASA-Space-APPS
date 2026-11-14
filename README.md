@@ -8,7 +8,7 @@ de la misión **NASA-ISRO NISAR** para mostrar los cambios en el territorio de *
 
 - Mostrar los cambios de superficie con un mapa interactivo y una línea de tiempo.
 - Explicar la ciencia con lenguaje sencillo, íconos y colores claros.
-- Ofrecer la información en los idiomas de Izabal (español, Q'eqchi', Garífuna) y narración en voz alta.
+- Sitio en inglés con opción de español, narración en voz alta y, a futuro, Q'eqchi' y Garífuna.
 - Permitir que investigadores y comunidades suban nuevos datos de forma colaborativa.
 
 ## Estructura
@@ -55,8 +55,11 @@ Cambia esos valores y se aplican en todo el sitio.
 
 ## Idiomas
 
-Todos los textos están en `js/i18n.js` (español e inglés). En el HTML se marcan con `data-i18n="clave"`.
-Para agregar un texto nuevo: ponle una clave en el HTML y agrégala en `es` y `en`.
+El sitio está **en inglés por defecto**. El botón 🌐 del encabezado cambia la página a **español**
+(y de regreso), y la elección se recuerda al pasar a otras páginas.
+
+- Todos los textos están en `js/i18n.js` (`en` y `es`). En el HTML se marcan con `data-i18n="clave"`.
+- Para agregar un texto nuevo: escríbelo en inglés en el HTML con su `data-i18n` y agrega la clave en `en` y `es`.
 
 ## Pendiente
 

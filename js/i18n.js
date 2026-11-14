@@ -3,8 +3,8 @@
    - En el HTML: data-i18n="clave" (texto), data-i18n-html="clave"
      (texto con etiquetas), data-i18n-attr="atributo:clave".
    - En JS: t("clave").
-   - Q'eqchi' (q) y Garífuna (cab): pendientes con hablantes de la
-     comunidad. Mientras tanto se usa el español.
+   - El sitio está en inglés por defecto; el botón de idioma cambia a
+     español. Q'eqchi' y Garífuna: pendientes con hablantes de la comunidad.
    ========================================================= */
 
 const TRADUCCIONES = {
@@ -12,13 +12,13 @@ const TRADUCCIONES = {
     /* Comunes */
     "comun.saltar": "Saltar al contenido",
     "comun.menu": "Abrir menú",
-    "comun.idioma": "Elegir idioma",
+    "comun.cambiar_idioma": "English",
+    "comun.cambiar_idioma_aria": "View the page in English",
     "comun.escuchar": "🔊 Escuchar",
     "comun.pie_desc": "Proyecto para el NASA Space Apps Challenge. Datos de radar de la misión NASA-ISRO NISAR, explicados para todo público.",
     "comun.pie_explorar": "Explorar",
     "comun.pie_fuentes": "Fuentes",
     "comun.pie_legal": "Datos abiertos · Hecho en Guatemala 🇬🇹",
-    "comun.aviso_idioma": "La traducción a este idioma está en proceso. Por ahora verás el texto en español.",
     "nav.inicio": "Inicio",
     "nav.mapa": "Mapa",
     "nav.aprende": "Aprende",
@@ -163,13 +163,13 @@ const TRADUCCIONES = {
   en: {
     "comun.saltar": "Skip to content",
     "comun.menu": "Open menu",
-    "comun.idioma": "Choose language",
+    "comun.cambiar_idioma": "Español",
+    "comun.cambiar_idioma_aria": "Ver la página en español",
     "comun.escuchar": "🔊 Listen",
     "comun.pie_desc": "A project for the NASA Space Apps Challenge. Radar data from the NASA-ISRO NISAR mission, explained for everyone.",
     "comun.pie_explorar": "Explore",
     "comun.pie_fuentes": "Sources",
     "comun.pie_legal": "Open data · Made in Guatemala 🇬🇹",
-    "comun.aviso_idioma": "The translation into this language is in progress. For now you will see the text in Spanish.",
     "nav.inicio": "Home",
     "nav.mapa": "Map",
     "nav.aprende": "Learn",
@@ -305,24 +305,24 @@ const TRADUCCIONES = {
     "form.enviar": "Send contribution",
     "form.error": "⚠️ Please check that all required fields are filled in.",
     "form.ok": "✅ Thank you! We received your contribution and will review it soon."
-  },
-
-  q: {},   // Q'eqchi' — pendiente
-  cab: {}  // Garífuna — pendiente
+  }
 };
 
 // Idioma para la narración en voz alta
-const VOZ_IDIOMA = { es: "es-GT", en: "en-US", q: "es-GT", cab: "es-GT" };
+const VOZ_IDIOMA = { es: "es-GT", en: "en-US" };
+
+// Idioma por defecto del sitio: inglés
+const IDIOMA_POR_DEFECTO = "en";
 
 // Idioma actual (lo actualiza main.js)
-let IDIOMA_ACTUAL = "es";
+let IDIOMA_ACTUAL = IDIOMA_POR_DEFECTO;
 
-// Traduce una clave; si no existe en el idioma, usa español
+// Traduce una clave; si no existe en el idioma, usa inglés
 function t(clave) {
-  return (TRADUCCIONES[IDIOMA_ACTUAL] || {})[clave] || TRADUCCIONES.es[clave] || clave;
+  return (TRADUCCIONES[IDIOMA_ACTUAL] || {})[clave] || TRADUCCIONES.en[clave] || clave;
 }
 
 // Elige el texto de un objeto { es, en }
 function tObj(obj) {
-  return obj[IDIOMA_ACTUAL] || obj.es;
+  return obj[IDIOMA_ACTUAL] || obj.en;
 }

@@ -149,7 +149,7 @@
   function dibujarEscenas() {
     const cuerpo = document.getElementById("tabla-escenas");
     if (!cuerpo) return;
-    const formato = new Intl.NumberFormat(IDIOMA_ACTUAL === "en" ? "en-US" : "es-GT");
+    const formato = new Intl.NumberFormat(IDIOMA_ACTUAL === "es" ? "es-GT" : "en-US");
     cuerpo.innerHTML = ESCENAS.map((e) => `
       <tr>
         <td>${e.satelite}</td>

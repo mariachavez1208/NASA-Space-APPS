@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="inicio.titulo_pagina">Mira cómo cambia tu territorio desde el espacio</title>
-  <meta name="description" content="Plataforma abierta con datos de radar satelital NISAR para entender los cambios en el territorio de Izabal, Guatemala.">
+<title data-i18n="inicio.titulo_pagina">See how your land changes from space</title>
+  <meta name="description" content="Open platform using NISAR satellite radar data to understand land changes in Izabal, Guatemala.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
@@ -12,29 +12,23 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a class="saltar-contenido" href="#contenido" data-i18n="comun.saltar">Saltar al contenido</a>
+  <a class="saltar-contenido" href="#contenido" data-i18n="comun.saltar">Skip to content</a>
 
   <header class="encabezado">
     <div class="contenedor encabezado__fila">
       <a class="logo" href="index.html"><span class="logo__icono" aria-hidden="true">🛰️</span> Izabal Vivo</a>
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:comun.menu">☰</button>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:comun.menu" aria-label="Open menu">☰</button>
       <nav class="nav" id="nav">
         <ul class="nav__lista">
-          <li><a href="index.html" aria-current="page" data-i18n="nav.inicio">Inicio</a></li>
-          <li><a href="mapa.html" data-i18n="nav.mapa">Mapa</a></li>
-          <li><a href="aprende.html" data-i18n="nav.aprende">Aprende</a></li>
-          <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribuir</a></li>
+          <li><a href="index.html" aria-current="page" data-i18n="nav.inicio">Home</a></li>
+          <li><a href="mapa.html" data-i18n="nav.mapa">Map</a></li>
+          <li><a href="aprende.html" data-i18n="nav.aprende">Learn</a></li>
+          <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribute</a></li>
         </ul>
       </nav>
-      <label class="idioma">
-        <span aria-hidden="true">🌐</span>
-        <select id="selector-idioma" data-i18n-attr="aria-label:comun.idioma">
-          <option value="es">Español</option>
-          <option value="q">Q'eqchi'</option>
-          <option value="cab">Garífuna</option>
-          <option value="en">English</option>
-        </select>
-      </label>
+      <button type="button" class="boton-idioma" id="boton-idioma" lang="es" data-i18n-attr="aria-label:comun.cambiar_idioma_aria" aria-label="Ver la página en español">
+        <span aria-hidden="true">🌐</span> <span data-i18n="comun.cambiar_idioma">Español</span>
+      </button>
     </div>
   </header>
 
@@ -43,11 +37,11 @@
     <section class="hero">
       <div class="contenedor">
         <span class="etiqueta etiqueta--clara" data-i18n="hero.etiqueta">NASA Space Apps Challenge · Guatemala</span>
-        <h1 data-i18n="hero.titulo">Mira cómo cambia tu territorio desde el espacio</h1>
-        <p class="hero__texto" data-i18n="hero.texto">Usamos satélites de radar como NISAR, de la NASA y la India, para ver los cambios en los bosques, ríos y suelos de Izabal. Explicado de forma sencilla, en tu idioma y abierto para todas y todos.</p>
+        <h1 data-i18n="hero.titulo">See how your land changes from space</h1>
+        <p class="hero__texto" data-i18n="hero.texto">We use radar satellites like NISAR, from NASA and India, to see changes in the forests, rivers and soils of Izabal. Explained simply, in your language, and open to everyone.</p>
         <div class="hero__acciones">
-          <a class="boton boton--primario" href="mapa.html" data-i18n="hero.boton_mapa">Explorar el mapa</a>
-          <a class="boton boton--secundario" href="aprende.html" data-i18n="hero.boton_aprende">¿Cómo funciona?</a>
+          <a class="boton boton--primario" href="mapa.html" data-i18n="hero.boton_mapa">Explore the map</a>
+          <a class="boton boton--secundario" href="aprende.html" data-i18n="hero.boton_aprende">How does it work?</a>
         </div>
       </div>
     </section>
@@ -55,31 +49,31 @@
     <!-- QUÉ PASA EN IZABAL -->
     <section class="seccion" id="izabal">
       <div class="contenedor">
-        <span class="etiqueta" data-i18n="izabal.etiqueta">Nuestro territorio</span>
-        <h2 data-i18n="izabal.titulo">¿Qué está pasando en Izabal?</h2>
-        <p class="seccion__intro" id="texto-izabal" data-i18n="izabal.texto">Izabal tiene el lago más grande de Guatemala, selvas, ríos y costa en el Caribe. Actividades como la minería y las plantaciones de palma africana han cambiado el paisaje. Aquí puedes ver esos cambios con tus propios ojos.</p>
-        <button class="boton-escuchar" data-leer="#texto-izabal" aria-pressed="false" data-i18n="comun.escuchar">🔊 Escuchar</button>
+        <span class="etiqueta" data-i18n="izabal.etiqueta">Our land</span>
+        <h2 data-i18n="izabal.titulo">What is happening in Izabal?</h2>
+        <p class="seccion__intro" id="texto-izabal" data-i18n="izabal.texto">Izabal has the largest lake in Guatemala, rainforests, rivers and a Caribbean coast. Activities like mining and oil palm plantations have changed the landscape. Here you can see those changes with your own eyes.</p>
+        <button class="boton-escuchar" data-leer="#texto-izabal" aria-pressed="false" data-i18n="comun.escuchar">🔊 Listen</button>
 
         <div class="rejilla" style="margin-top: 2rem">
           <article class="tarjeta tarjeta--impacto">
             <div class="tarjeta__icono" aria-hidden="true">⛏️</div>
-            <h3 data-i18n="tema.mineria">Minería</h3>
-            <p data-i18n="tema.mineria_txt">Mira dónde se ha removido el suelo y cómo cambia la tierra cerca del lago de Izabal.</p>
+            <h3 data-i18n="tema.mineria">Mining</h3>
+            <p data-i18n="tema.mineria_txt">See where the ground has been dug up and how the land changes near Lake Izabal.</p>
           </article>
           <article class="tarjeta tarjeta--impacto">
             <div class="tarjeta__icono" aria-hidden="true">🌴</div>
-            <h3 data-i18n="tema.palma">Palma africana</h3>
-            <p data-i18n="tema.palma_txt">Descubre cuánto bosque se ha convertido en plantaciones a lo largo de los años.</p>
+            <h3 data-i18n="tema.palma">Oil palm</h3>
+            <p data-i18n="tema.palma_txt">Find out how much forest has turned into plantations over the years.</p>
           </article>
           <article class="tarjeta">
             <div class="tarjeta__icono" aria-hidden="true">🌳</div>
-            <h3 data-i18n="tema.bosque">Bosques</h3>
-            <p data-i18n="tema.bosque_txt">Compara cómo se veía la selva antes y cómo se ve ahora.</p>
+            <h3 data-i18n="tema.bosque">Forests</h3>
+            <p data-i18n="tema.bosque_txt">Compare what the rainforest looked like before and what it looks like now.</p>
           </article>
           <article class="tarjeta">
             <div class="tarjeta__icono" aria-hidden="true">💧</div>
-            <h3 data-i18n="tema.agua">Agua y humedales</h3>
-            <p data-i18n="tema.agua_txt">Observa los ríos, el lago y las zonas que se inundan o se secan.</p>
+            <h3 data-i18n="tema.agua">Water and wetlands</h3>
+            <p data-i18n="tema.agua_txt">Look at the rivers, the lake and the areas that flood or dry up.</p>
           </article>
         </div>
       </div>
@@ -88,36 +82,36 @@
     <!-- VISTA PREVIA DEL MAPA -->
     <section class="seccion seccion--alterna">
       <div class="contenedor">
-        <span class="etiqueta" data-i18n="preview.etiqueta">Mapa interactivo</span>
-        <h2 data-i18n="preview.titulo">Toca el mapa y descubre</h2>
-        <p class="seccion__intro" data-i18n="preview.texto">Encima del mapa ves una imagen real de radar de Izabal. Cada punto de color es un lugar interesante: tócalo para leer (o escuchar) qué observar ahí.</p>
-        <div id="mapa-preview" class="mapa mapa--preview" role="region" data-i18n-attr="aria-label:mapa.aria"></div>
+        <span class="etiqueta" data-i18n="preview.etiqueta">Interactive map</span>
+        <h2 data-i18n="preview.titulo">Tap the map and explore</h2>
+        <p class="seccion__intro" data-i18n="preview.texto">On top of the map you see a real radar image of Izabal. Each colored dot is an interesting place: tap it to read (or listen to) what to look for there.</p>
+        <div id="mapa-preview" class="mapa mapa--preview" role="region" data-i18n-attr="aria-label:mapa.aria" aria-label="Interactive map of Izabal"></div>
         <div class="leyenda" id="leyenda"></div>
-        <p style="margin-top: 1.5rem"><a class="boton boton--contorno" href="mapa.html" data-i18n="preview.boton">Abrir el mapa completo →</a></p>
+        <p style="margin-top: 1.5rem"><a class="boton boton--contorno" href="mapa.html" data-i18n="preview.boton">Open the full map →</a></p>
       </div>
     </section>
 
     <!-- CÓMO FUNCIONA -->
     <section class="seccion">
       <div class="contenedor">
-        <span class="etiqueta" data-i18n="pasos.etiqueta">Así de fácil</span>
-        <h2 data-i18n="pasos.titulo">¿Cómo funciona?</h2>
+        <span class="etiqueta" data-i18n="pasos.etiqueta">It's that easy</span>
+        <h2 data-i18n="pasos.titulo">How does it work?</h2>
         <div class="rejilla pasos">
           <article class="tarjeta paso">
-            <h3 data-i18n="pasos.1_titulo">El satélite toma "fotos" con radar</h3>
-            <p data-i18n="pasos.1_texto">El radar ve la tierra aunque haya nubes o sea de noche, como un murciélago que usa el eco.</p>
+            <h3 data-i18n="pasos.1_titulo">The satellite takes radar "photos"</h3>
+            <p data-i18n="pasos.1_texto">Radar sees the ground even through clouds or at night, like a bat using echoes.</p>
           </article>
           <article class="tarjeta paso">
-            <h3 data-i18n="pasos.2_titulo">Comparamos antes y después</h3>
-            <p data-i18n="pasos.2_texto">Al juntar imágenes de distintas fechas, podemos ver qué cambió en el suelo.</p>
+            <h3 data-i18n="pasos.2_titulo">We compare before and after</h3>
+            <p data-i18n="pasos.2_texto">By putting together images from different dates, we can see what changed on the ground.</p>
           </article>
           <article class="tarjeta paso">
-            <h3 data-i18n="pasos.3_titulo">Lo explicamos en tu idioma</h3>
-            <p data-i18n="pasos.3_texto">Mostramos los cambios con colores simples, textos claros y narración en voz alta.</p>
+            <h3 data-i18n="pasos.3_titulo">We explain it in your language</h3>
+            <p data-i18n="pasos.3_texto">We show the changes with simple colors, clear text and read-aloud narration.</p>
           </article>
           <article class="tarjeta paso">
-            <h3 data-i18n="pasos.4_titulo">Todos pueden aportar</h3>
-            <p data-i18n="pasos.4_texto">Investigadores y comunidades pueden subir nuevos datos para que la información crezca.</p>
+            <h3 data-i18n="pasos.4_titulo">Everyone can contribute</h3>
+            <p data-i18n="pasos.4_texto">Researchers and communities can upload new data so the information keeps growing.</p>
           </article>
         </div>
       </div>
@@ -126,14 +120,14 @@
     <!-- IDIOMAS -->
     <section class="seccion seccion--alterna">
       <div class="contenedor">
-        <span class="etiqueta" data-i18n="idiomas.etiqueta">Para todas las comunidades</span>
-        <h2 data-i18n="idiomas.titulo">La información de tu territorio, en tu idioma</h2>
-        <p class="seccion__intro" data-i18n="idiomas.texto">Queremos que las familias de Izabal puedan leer y escuchar esta información en su propio idioma.</p>
+        <span class="etiqueta" data-i18n="idiomas.etiqueta">For every community</span>
+        <h2 data-i18n="idiomas.titulo">Information about your land, in your language</h2>
+        <p class="seccion__intro" data-i18n="idiomas.texto">We want families in Izabal to be able to read and listen to this information in their own language.</p>
         <div class="rejilla">
-          <article class="tarjeta"><h3>Español</h3><p data-i18n="idiomas.es">Disponible.</p></article>
-          <article class="tarjeta"><h3>Q'eqchi'</h3><p data-i18n="idiomas.q">Traducción en proceso con hablantes de la comunidad.</p></article>
-          <article class="tarjeta"><h3>Garífuna</h3><p data-i18n="idiomas.cab">Traducción en proceso con hablantes de la comunidad.</p></article>
-          <article class="tarjeta"><h3>English</h3><p data-i18n="idiomas.en">Disponible, para investigadores y visitantes.</p></article>
+          <article class="tarjeta"><h3>Español</h3><p data-i18n="idiomas.es">Available.</p></article>
+          <article class="tarjeta"><h3>Q'eqchi'</h3><p data-i18n="idiomas.q">Translation in progress with community speakers.</p></article>
+          <article class="tarjeta"><h3>Garífuna</h3><p data-i18n="idiomas.cab">Translation in progress with community speakers.</p></article>
+          <article class="tarjeta"><h3>English</h3><p data-i18n="idiomas.en">Available, for researchers and visitors.</p></article>
         </div>
       </div>
     </section>
@@ -141,9 +135,9 @@
     <!-- LLAMADA A CONTRIBUIR -->
     <section class="seccion">
       <div class="contenedor centrado">
-        <h2 data-i18n="cta.titulo">¿Tienes datos o conoces tu comunidad?</h2>
-        <p class="seccion__intro" data-i18n="cta.texto">Investigadores, estudiantes y líderes comunitarios pueden compartir información para que todos entendamos mejor lo que pasa en Izabal.</p>
-        <a class="boton boton--primario" href="contribuir.html" data-i18n="cta.boton">Quiero contribuir</a>
+        <h2 data-i18n="cta.titulo">Do you have data or know your community?</h2>
+        <p class="seccion__intro" data-i18n="cta.texto">Researchers, students and community leaders can share information so we all better understand what is happening in Izabal.</p>
+        <a class="boton boton--primario" href="contribuir.html" data-i18n="cta.boton">I want to contribute</a>
       </div>
     </section>
   </main>
@@ -153,18 +147,18 @@
       <div class="pie__rejilla">
         <div>
           <h3>Izabal Vivo</h3>
-          <p data-i18n="comun.pie_desc">Proyecto para el NASA Space Apps Challenge. Datos de radar de la misión NASA-ISRO NISAR, explicados para todo público.</p>
+          <p data-i18n="comun.pie_desc">A project for the NASA Space Apps Challenge. Radar data from the NASA-ISRO NISAR mission, explained for everyone.</p>
         </div>
         <div>
-          <h3 data-i18n="comun.pie_explorar">Explorar</h3>
+          <h3 data-i18n="comun.pie_explorar">Explore</h3>
           <ul>
-            <li><a href="mapa.html" data-i18n="nav.mapa">Mapa</a></li>
-            <li><a href="aprende.html" data-i18n="nav.aprende">Aprende</a></li>
-            <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribuir</a></li>
+            <li><a href="mapa.html" data-i18n="nav.mapa">Map</a></li>
+            <li><a href="aprende.html" data-i18n="nav.aprende">Learn</a></li>
+            <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribute</a></li>
           </ul>
         </div>
         <div>
-          <h3 data-i18n="comun.pie_fuentes">Fuentes</h3>
+          <h3 data-i18n="comun.pie_fuentes">Sources</h3>
           <ul>
             <li><a href="https://nisar.jpl.nasa.gov/" target="_blank" rel="noopener">NISAR (NASA-ISRO)</a></li>
             <li><a href="https://sentinels.copernicus.eu/" target="_blank" rel="noopener">Sentinel-1 (ESA)</a></li>
@@ -172,7 +166,7 @@
           </ul>
         </div>
       </div>
-      <p class="pie__legal" data-i18n="comun.pie_legal">Datos abiertos · Hecho en Guatemala 🇬🇹</p>
+      <p class="pie__legal" data-i18n="comun.pie_legal">Open data · Made in Guatemala 🇬🇹</p>
     </div>
   </footer>
 

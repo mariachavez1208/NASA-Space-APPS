@@ -1,75 +1,69 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="aprende.titulo_pagina">Aprende · Izabal Vivo</title>
+  <title data-i18n="aprende.titulo_pagina">Learn · Izabal Vivo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a class="saltar-contenido" href="#contenido" data-i18n="comun.saltar">Saltar al contenido</a>
+  <a class="saltar-contenido" href="#contenido" data-i18n="comun.saltar">Skip to content</a>
 
   <header class="encabezado">
     <div class="contenedor encabezado__fila">
       <a class="logo" href="index.html"><span class="logo__icono" aria-hidden="true">🛰️</span> Izabal Vivo</a>
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:comun.menu">☰</button>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:comun.menu" aria-label="Open menu">☰</button>
       <nav class="nav" id="nav">
         <ul class="nav__lista">
-          <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
-          <li><a href="mapa.html" data-i18n="nav.mapa">Mapa</a></li>
-          <li><a href="aprende.html" aria-current="page" data-i18n="nav.aprende">Aprende</a></li>
-          <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribuir</a></li>
+          <li><a href="index.html" data-i18n="nav.inicio">Home</a></li>
+          <li><a href="mapa.html" data-i18n="nav.mapa">Map</a></li>
+          <li><a href="aprende.html" aria-current="page" data-i18n="nav.aprende">Learn</a></li>
+          <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribute</a></li>
         </ul>
       </nav>
-      <label class="idioma">
-        <span aria-hidden="true">🌐</span>
-        <select id="selector-idioma" data-i18n-attr="aria-label:comun.idioma">
-          <option value="es">Español</option>
-          <option value="q">Q'eqchi'</option>
-          <option value="cab">Garífuna</option>
-          <option value="en">English</option>
-        </select>
-      </label>
+      <button type="button" class="boton-idioma" id="boton-idioma" lang="es" data-i18n-attr="aria-label:comun.cambiar_idioma_aria" aria-label="Ver la página en español">
+        <span aria-hidden="true">🌐</span> <span data-i18n="comun.cambiar_idioma">Español</span>
+      </button>
     </div>
   </header>
 
   <main id="contenido">
     <section class="seccion">
       <div class="contenedor">
-        <span class="etiqueta" data-i18n="aprende.etiqueta">Sin palabras difíciles</span>
-        <h1 data-i18n="aprende.titulo">Aprende cómo vemos la Tierra desde el espacio</h1>
-        <p class="seccion__intro" data-i18n="aprende.intro">No necesitas ser científico para entender esto. Aquí te lo explicamos paso a paso.</p>
+        <span class="etiqueta" data-i18n="aprende.etiqueta">No difficult words</span>
+        <h1 data-i18n="aprende.titulo">Learn how we see Earth from space</h1>
+        <p class="seccion__intro" data-i18n="aprende.intro">You don't need to be a scientist to understand this. We explain it step by step.</p>
 
         <div class="rejilla">
           <article class="tarjeta" id="que-es-nisar">
             <div class="tarjeta__icono" aria-hidden="true">🛰️</div>
-            <h3 data-i18n="aprende.nisar_t">¿Qué es NISAR?</h3>
-            <p data-i18n="aprende.nisar_p">Es un satélite que hicieron juntos la NASA (Estados Unidos) y la ISRO (India). Da vueltas alrededor de la Tierra y la observa una y otra vez para ver qué cambia.</p>
-            <button class="boton-escuchar" data-leer="#que-es-nisar" aria-pressed="false" data-i18n="comun.escuchar">🔊 Escuchar</button>
+            <h3 data-i18n="aprende.nisar_t">What is NISAR?</h3>
+            <p data-i18n="aprende.nisar_p">It is a satellite built together by NASA (United States) and ISRO (India). It circles the Earth and looks at it again and again to see what changes.</p>
+            <button class="boton-escuchar" data-leer="#que-es-nisar" aria-pressed="false" data-i18n="comun.escuchar">🔊 Listen</button>
           </article>
 
           <article class="tarjeta" id="que-es-radar">
             <div class="tarjeta__icono" aria-hidden="true">📡</div>
-            <h3 data-i18n="aprende.radar_t">¿Qué es un radar?</h3>
-            <p data-i18n="aprende.radar_p">El satélite envía ondas hacia la tierra y escucha el "eco" que regresa, como cuando gritas en una cueva. Por eso puede ver aunque esté nublado o sea de noche.</p>
-            <button class="boton-escuchar" data-leer="#que-es-radar" aria-pressed="false" data-i18n="comun.escuchar">🔊 Escuchar</button>
+            <h3 data-i18n="aprende.radar_t">What is radar?</h3>
+            <p data-i18n="aprende.radar_p">The satellite sends waves toward the ground and listens for the "echo" that comes back, like when you shout in a cave. That's why it can see even when it's cloudy or at night.</p>
+            <button class="boton-escuchar" data-leer="#que-es-radar" aria-pressed="false" data-i18n="comun.escuchar">🔊 Listen</button>
           </article>
 
           <article class="tarjeta" id="como-cambios">
             <div class="tarjeta__icono" aria-hidden="true">🔍</div>
-            <h3 data-i18n="aprende.cambios_t">¿Cómo se ven los cambios?</h3>
-            <p data-i18n="aprende.cambios_p">Un bosque, un campo de palma y un suelo sin plantas devuelven ecos distintos. Si el eco de un lugar cambia con los años, sabemos que algo pasó ahí.</p>
-            <button class="boton-escuchar" data-leer="#como-cambios" aria-pressed="false" data-i18n="comun.escuchar">🔊 Escuchar</button>
+            <h3 data-i18n="aprende.cambios_t">How do changes show up?</h3>
+            <p data-i18n="aprende.cambios_p">A forest, a palm field and bare ground send back different echoes. If the echo from a place changes over the years, we know something happened there.</p>
+            <button class="boton-escuchar" data-leer="#como-cambios" aria-pressed="false" data-i18n="comun.escuchar">🔊 Listen</button>
           </article>
 
           <article class="tarjeta" id="que-es-sentinel">
             <div class="tarjeta__icono" aria-hidden="true">🇪🇺</div>
-            <h3 data-i18n="aprende.sentinel_t">¿Y Sentinel-1?</h3>
-            <p data-i18n="aprende.sentinel_p">Es un satélite de radar europeo. Usamos sus imágenes de 2016 para comparar cómo era Izabal antes de que existiera NISAR.</p>
-            <button class="boton-escuchar" data-leer="#que-es-sentinel" aria-pressed="false" data-i18n="comun.escuchar">🔊 Escuchar</button>
+            <h3 data-i18n="aprende.sentinel_t">And Sentinel-1?</h3>
+            <p data-i18n="aprende.sentinel_p">It is a European radar satellite. We use its 2016 images to compare what Izabal looked like before NISAR existed.</p>
+            <button class="boton-escuchar" data-leer="#que-es-sentinel" aria-pressed="false" data-i18n="comun.escuchar">🔊 Listen</button>
           </article>
         </div>
       </div>
@@ -77,22 +71,22 @@
 
     <section class="seccion seccion--alterna">
       <div class="contenedor">
-        <h2 data-i18n="aprende.importa">¿Por qué importa en Izabal?</h2>
+        <h2 data-i18n="aprende.importa">Why does it matter in Izabal?</h2>
         <div class="rejilla">
           <article class="tarjeta tarjeta--impacto">
             <div class="tarjeta__icono" aria-hidden="true">⛏️</div>
-            <h3 data-i18n="tema.mineria">Minería</h3>
-            <p data-i18n="aprende.mineria_p">Remover tierra y roca cambia el suelo y puede afectar el agua del lago y los ríos que usan las comunidades.</p>
+            <h3 data-i18n="tema.mineria">Mining</h3>
+            <p data-i18n="aprende.mineria_p">Removing soil and rock changes the ground and can affect the water in the lake and rivers that communities use.</p>
           </article>
           <article class="tarjeta tarjeta--impacto">
             <div class="tarjeta__icono" aria-hidden="true">🌴</div>
-            <h3 data-i18n="tema.palma">Palma africana</h3>
-            <p data-i18n="aprende.palma_p">Cuando la selva se reemplaza por un solo tipo de planta, se pierden animales, plantas y fuentes de agua.</p>
+            <h3 data-i18n="tema.palma">Oil palm</h3>
+            <p data-i18n="aprende.palma_p">When the rainforest is replaced by a single type of plant, animals, plants and water sources are lost.</p>
           </article>
           <article class="tarjeta">
             <div class="tarjeta__icono" aria-hidden="true">👨‍👩‍👧</div>
-            <h3 data-i18n="aprende.comunidades_t">Las comunidades</h3>
-            <p data-i18n="aprende.comunidades_p">Conocer estos cambios ayuda a las familias a cuidar su territorio y a tomar decisiones informadas.</p>
+            <h3 data-i18n="aprende.comunidades_t">Communities</h3>
+            <p data-i18n="aprende.comunidades_p">Knowing about these changes helps families take care of their land and make informed decisions.</p>
           </article>
         </div>
       </div>
@@ -100,27 +94,27 @@
 
     <section class="seccion">
       <div class="contenedor">
-        <h2 data-i18n="glosario.titulo">Palabras que vas a encontrar</h2>
+        <h2 data-i18n="glosario.titulo">Words you will find</h2>
         <div class="glosario">
           <details>
-            <summary data-i18n="glosario.satelite_t">Satélite</summary>
-            <p data-i18n="glosario.satelite_p">Una máquina que da vueltas alrededor de la Tierra en el espacio y toma información de ella.</p>
+            <summary data-i18n="glosario.satelite_t">Satellite</summary>
+            <p data-i18n="glosario.satelite_p">A machine that circles the Earth in space and collects information about it.</p>
           </details>
           <details>
-            <summary data-i18n="glosario.sar_t">SAR (Radar de Apertura Sintética)</summary>
-            <p data-i18n="glosario.sar_p">El tipo de radar que usan NISAR y Sentinel-1. Combina muchos ecos para formar una imagen muy detallada del suelo.</p>
+            <summary data-i18n="glosario.sar_t">SAR (Synthetic Aperture Radar)</summary>
+            <p data-i18n="glosario.sar_p">The type of radar used by NISAR and Sentinel-1. It combines many echoes to form a very detailed image of the ground.</p>
           </details>
           <details>
-            <summary data-i18n="glosario.defo_t">Deforestación</summary>
-            <p data-i18n="glosario.defo_p">Cuando se cortan o queman árboles y el bosque desaparece.</p>
+            <summary data-i18n="glosario.defo_t">Deforestation</summary>
+            <p data-i18n="glosario.defo_p">When trees are cut down or burned and the forest disappears.</p>
           </details>
           <details>
-            <summary data-i18n="glosario.humedal_t">Humedal</summary>
-            <p data-i18n="glosario.humedal_p">Terreno que pasa con agua buena parte del año, como pantanos y orillas del lago. Es hogar de muchos animales.</p>
+            <summary data-i18n="glosario.humedal_t">Wetland</summary>
+            <p data-i18n="glosario.humedal_p">Land that is covered with water for much of the year, like swamps and lake shores. It is home to many animals.</p>
           </details>
           <details>
-            <summary data-i18n="glosario.abiertos_t">Datos abiertos</summary>
-            <p data-i18n="glosario.abiertos_p">Información que cualquier persona puede ver, usar y compartir gratis.</p>
+            <summary data-i18n="glosario.abiertos_t">Open data</summary>
+            <p data-i18n="glosario.abiertos_p">Information that anyone can see, use and share for free.</p>
           </details>
         </div>
       </div>
@@ -132,18 +126,18 @@
       <div class="pie__rejilla">
         <div>
           <h3>Izabal Vivo</h3>
-          <p data-i18n="comun.pie_desc">Proyecto para el NASA Space Apps Challenge. Datos de radar de la misión NASA-ISRO NISAR, explicados para todo público.</p>
+          <p data-i18n="comun.pie_desc">A project for the NASA Space Apps Challenge. Radar data from the NASA-ISRO NISAR mission, explained for everyone.</p>
         </div>
         <div>
-          <h3 data-i18n="comun.pie_explorar">Explorar</h3>
+          <h3 data-i18n="comun.pie_explorar">Explore</h3>
           <ul>
-            <li><a href="mapa.html" data-i18n="nav.mapa">Mapa</a></li>
-            <li><a href="aprende.html" data-i18n="nav.aprende">Aprende</a></li>
-            <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribuir</a></li>
+            <li><a href="mapa.html" data-i18n="nav.mapa">Map</a></li>
+            <li><a href="aprende.html" data-i18n="nav.aprende">Learn</a></li>
+            <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribute</a></li>
           </ul>
         </div>
         <div>
-          <h3 data-i18n="comun.pie_fuentes">Fuentes</h3>
+          <h3 data-i18n="comun.pie_fuentes">Sources</h3>
           <ul>
             <li><a href="https://nisar.jpl.nasa.gov/" target="_blank" rel="noopener">NISAR (NASA-ISRO)</a></li>
             <li><a href="https://sentinels.copernicus.eu/" target="_blank" rel="noopener">Sentinel-1 (ESA)</a></li>
@@ -151,7 +145,7 @@
           </ul>
         </div>
       </div>
-      <p class="pie__legal" data-i18n="comun.pie_legal">Datos abiertos · Hecho en Guatemala 🇬🇹</p>
+      <p class="pie__legal" data-i18n="comun.pie_legal">Open data · Made in Guatemala 🇬🇹</p>
     </div>
   </footer>
 

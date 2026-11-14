@@ -12,11 +12,14 @@
     });
   }
 
-  /* ---------- Idioma ---------- */
-  const selector = document.getElementById("selector-idioma");
+  /* ---------- Idioma ----------
+     El sitio está en inglés. El botón #boton-idioma cambia entre
+     inglés y español, y la elección se guarda para las demás páginas. */
+  const botonIdioma = document.getElementById("boton-idioma");
+  const CLAVE_IDIOMA = "idioma-sitio";
 
   function aplicarIdioma(cod) {
-    IDIOMA_ACTUAL = TRADUCCIONES[cod] ? cod : "es";
+    IDIOMA_ACTUAL = TRADUCCIONES[cod] ? cod : IDIOMA_POR_DEFECTO;
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       el.textContent = t(el.dataset.i18n);
@@ -32,29 +35,26 @@
       });
     });
 
-    document.documentElement.lang = IDIOMA_ACTUAL === "en" ? "en" : "es";
-    if (selector) selector.value = IDIOMA_ACTUAL;
+    document.documentElement.lang = IDIOMA_ACTUAL;
+    // El botón muestra el OTRO idioma, así que su lang es el contrario
+    if (botonIdioma) botonIdioma.lang = IDIOMA_ACTUAL === "en" ? "es" : "en";
 
     // Avisar a otros scripts (mapa, galería) para que se redibujen
     document.dispatchEvent(new CustomEvent("idioma-cambiado"));
-
-    if ((cod === "q" || cod === "cab") && !storage(sessionStorage, "aviso-" + cod)) {
-      alertaSuave(t("comun.aviso_idioma"));
-      storage(sessionStorage, "aviso-" + cod, "1");
-    }
   }
 
-  if (selector) {
-    selector.addEventListener("change", () => {
+  if (botonIdioma) {
+    botonIdioma.addEventListener("click", () => {
       if (window.speechSynthesis) speechSynthesis.cancel();
-      storage(localStorage, "idioma", selector.value);
-      aplicarIdioma(selector.value);
+      const nuevo = IDIOMA_ACTUAL === "en" ? "es" : "en";
+      storage(localStorage, CLAVE_IDIOMA, nuevo);
+      aplicarIdioma(nuevo);
     });
   }
 
   // Esperar a que carguen los demás scripts antes de traducir
   document.addEventListener("DOMContentLoaded", () => {
-    aplicarIdioma(storage(localStorage, "idioma") || "es");
+    aplicarIdioma(storage(localStorage, CLAVE_IDIOMA) || IDIOMA_POR_DEFECTO);
   });
 
   /* ---------- Narración en voz alta ---------- */
@@ -86,7 +86,7 @@
       .forEach((b) => b.setAttribute("aria-pressed", "false"));
 
     const voz = new SpeechSynthesisUtterance(texto);
-    voz.lang = VOZ_IDIOMA[IDIOMA_ACTUAL] || "es-GT";
+    voz.lang = VOZ_IDIOMA[IDIOMA_ACTUAL] || "en-US";
     voz.rate = 0.95;
     voz.onend = () => boton.setAttribute("aria-pressed", "false");
     boton.setAttribute("aria-pressed", "true");
@@ -109,15 +109,6 @@
   }
 
   /* ---------- Utilidades ---------- */
-  function alertaSuave(texto) {
-    const div = document.createElement("div");
-    div.className = "aviso aviso--flotante";
-    div.setAttribute("role", "status");
-    div.textContent = texto;
-    document.body.appendChild(div);
-    setTimeout(() => div.remove(), 6000);
-  }
-
   // Lee o guarda en localStorage/sessionStorage sin romper si no está disponible
   function storage(tipo, clave, valor) {
     try {

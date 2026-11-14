@@ -1,103 +1,97 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="contribuir.titulo_pagina">Contribuir · Izabal Vivo</title>
+  <title data-i18n="contribuir.titulo_pagina">Contribute · Izabal Vivo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a class="saltar-contenido" href="#contenido" data-i18n="comun.saltar">Saltar al contenido</a>
+  <a class="saltar-contenido" href="#contenido" data-i18n="comun.saltar">Skip to content</a>
 
   <header class="encabezado">
     <div class="contenedor encabezado__fila">
       <a class="logo" href="index.html"><span class="logo__icono" aria-hidden="true">🛰️</span> Izabal Vivo</a>
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:comun.menu">☰</button>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:comun.menu" aria-label="Open menu">☰</button>
       <nav class="nav" id="nav">
         <ul class="nav__lista">
-          <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
-          <li><a href="mapa.html" data-i18n="nav.mapa">Mapa</a></li>
-          <li><a href="aprende.html" data-i18n="nav.aprende">Aprende</a></li>
-          <li><a href="contribuir.html" aria-current="page" data-i18n="nav.contribuir">Contribuir</a></li>
+          <li><a href="index.html" data-i18n="nav.inicio">Home</a></li>
+          <li><a href="mapa.html" data-i18n="nav.mapa">Map</a></li>
+          <li><a href="aprende.html" data-i18n="nav.aprende">Learn</a></li>
+          <li><a href="contribuir.html" aria-current="page" data-i18n="nav.contribuir">Contribute</a></li>
         </ul>
       </nav>
-      <label class="idioma">
-        <span aria-hidden="true">🌐</span>
-        <select id="selector-idioma" data-i18n-attr="aria-label:comun.idioma">
-          <option value="es">Español</option>
-          <option value="q">Q'eqchi'</option>
-          <option value="cab">Garífuna</option>
-          <option value="en">English</option>
-        </select>
-      </label>
+      <button type="button" class="boton-idioma" id="boton-idioma" lang="es" data-i18n-attr="aria-label:comun.cambiar_idioma_aria" aria-label="Ver la página en español">
+        <span aria-hidden="true">🌐</span> <span data-i18n="comun.cambiar_idioma">Español</span>
+      </button>
     </div>
   </header>
 
   <main id="contenido" class="seccion">
     <div class="contenedor">
-      <span class="etiqueta" data-i18n="contribuir.etiqueta">Ciencia colaborativa</span>
-      <h1 data-i18n="contribuir.titulo">Comparte datos sobre Izabal</h1>
-      <p class="seccion__intro" data-i18n="contribuir.intro">Si eres investigador, estudiante o parte de una comunidad, puedes aportar datos, estudios o reportes. Revisamos cada aporte antes de publicarlo en el mapa.</p>
+      <span class="etiqueta" data-i18n="contribuir.etiqueta">Collaborative science</span>
+      <h1 data-i18n="contribuir.titulo">Share data about Izabal</h1>
+      <p class="seccion__intro" data-i18n="contribuir.intro">If you are a researcher, a student or part of a community, you can contribute data, studies or reports. We review every contribution before publishing it on the map.</p>
 
       <form class="formulario" id="form-contribuir" novalidate>
         <div class="campo">
-          <label for="nombre" data-i18n="form.nombre">Tu nombre o el de tu organización</label>
+          <label for="nombre" data-i18n="form.nombre">Your name or your organization's name</label>
           <input type="text" id="nombre" name="nombre" required>
         </div>
 
         <div class="campo">
-          <label for="correo" data-i18n="form.correo">Correo electrónico</label>
+          <label for="correo" data-i18n="form.correo">Email</label>
           <input type="email" id="correo" name="correo" required>
-          <small data-i18n="form.correo_ayuda">Solo lo usamos para contactarte sobre tu aporte.</small>
+          <small data-i18n="form.correo_ayuda">We only use it to contact you about your contribution.</small>
         </div>
 
         <div class="campo">
-          <label for="tipo" data-i18n="form.tipo">¿Qué tipo de aporte es?</label>
+          <label for="tipo" data-i18n="form.tipo">What kind of contribution is it?</label>
           <select id="tipo" name="tipo" required>
-            <option value="" data-i18n="form.tipo_elige">Elige una opción</option>
-            <option value="sar" data-i18n="form.tipo_sar">Datos de radar (SAR / NISAR)</option>
-            <option value="estudio" data-i18n="form.tipo_estudio">Estudio o artículo científico</option>
-            <option value="campo" data-i18n="form.tipo_campo">Observación de campo / reporte comunitario</option>
-            <option value="fotos" data-i18n="form.tipo_fotos">Fotografías</option>
+            <option value="" data-i18n="form.tipo_elige">Choose an option</option>
+            <option value="sar" data-i18n="form.tipo_sar">Radar data (SAR / NISAR)</option>
+            <option value="estudio" data-i18n="form.tipo_estudio">Study or scientific article</option>
+            <option value="campo" data-i18n="form.tipo_campo">Field observation / community report</option>
+            <option value="fotos" data-i18n="form.tipo_fotos">Photos</option>
           </select>
         </div>
 
         <div class="campo">
-          <label for="tema" data-i18n="form.tema">Tema</label>
+          <label for="tema" data-i18n="form.tema">Topic</label>
           <select id="tema" name="tema">
-            <option value="mineria" data-i18n="tema.mineria">Minería</option>
-            <option value="palma" data-i18n="tema.palma">Palma africana</option>
-            <option value="bosque" data-i18n="tema.bosque">Bosques</option>
-            <option value="agua" data-i18n="tema.agua">Agua y humedales</option>
-            <option value="otro" data-i18n="form.otro">Otro</option>
+            <option value="mineria" data-i18n="tema.mineria">Mining</option>
+            <option value="palma" data-i18n="tema.palma">Oil palm</option>
+            <option value="bosque" data-i18n="tema.bosque">Forests</option>
+            <option value="agua" data-i18n="tema.agua">Water and wetlands</option>
+            <option value="otro" data-i18n="form.otro">Other</option>
           </select>
         </div>
 
         <div class="campo">
-          <label for="descripcion" data-i18n="form.descripcion">Cuéntanos de qué trata</label>
+          <label for="descripcion" data-i18n="form.descripcion">Tell us what it is about</label>
           <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
-          <small data-i18n="form.descripcion_ayuda">Escribe con palabras sencillas: qué observaste, dónde y cuándo.</small>
+          <small data-i18n="form.descripcion_ayuda">Use simple words: what you saw, where and when.</small>
         </div>
 
         <div class="campo">
-          <label for="archivo" data-i18n="form.archivo">Archivo</label>
+          <label for="archivo" data-i18n="form.archivo">File</label>
           <div class="zona-archivo">
-            <p data-i18n="form.archivo_zona">📁 Arrastra tu archivo aquí o selecciónalo</p>
+            <p data-i18n="form.archivo_zona">📁 Drag your file here or select it</p>
             <input type="file" id="archivo" name="archivo" accept=".tif,.tiff,.h5,.geojson,.kml,.csv,.pdf,.jpg,.png">
-            <small data-i18n="form.archivo_ayuda">Formatos: GeoTIFF, HDF5, GeoJSON, KML, CSV, PDF, imágenes.</small>
+            <small data-i18n="form.archivo_ayuda">Formats: GeoTIFF, HDF5, GeoJSON, KML, CSV, PDF, images.</small>
           </div>
         </div>
 
         <label class="capa">
           <input type="checkbox" id="licencia" required>
-          <span data-i18n="form.licencia">Acepto que mi aporte se publique como dato abierto.</span>
+          <span data-i18n="form.licencia">I agree that my contribution will be published as open data.</span>
         </label>
 
         <div>
-          <button class="boton boton--primario" type="submit" data-i18n="form.enviar">Enviar aporte</button>
+          <button class="boton boton--primario" type="submit" data-i18n="form.enviar">Send contribution</button>
         </div>
         <p id="mensaje-form" role="status"></p>
       </form>
@@ -109,18 +103,18 @@
       <div class="pie__rejilla">
         <div>
           <h3>Izabal Vivo</h3>
-          <p data-i18n="comun.pie_desc">Proyecto para el NASA Space Apps Challenge. Datos de radar de la misión NASA-ISRO NISAR, explicados para todo público.</p>
+          <p data-i18n="comun.pie_desc">A project for the NASA Space Apps Challenge. Radar data from the NASA-ISRO NISAR mission, explained for everyone.</p>
         </div>
         <div>
-          <h3 data-i18n="comun.pie_explorar">Explorar</h3>
+          <h3 data-i18n="comun.pie_explorar">Explore</h3>
           <ul>
-            <li><a href="mapa.html" data-i18n="nav.mapa">Mapa</a></li>
-            <li><a href="aprende.html" data-i18n="nav.aprende">Aprende</a></li>
-            <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribuir</a></li>
+            <li><a href="mapa.html" data-i18n="nav.mapa">Map</a></li>
+            <li><a href="aprende.html" data-i18n="nav.aprende">Learn</a></li>
+            <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribute</a></li>
           </ul>
         </div>
         <div>
-          <h3 data-i18n="comun.pie_fuentes">Fuentes</h3>
+          <h3 data-i18n="comun.pie_fuentes">Sources</h3>
           <ul>
             <li><a href="https://nisar.jpl.nasa.gov/" target="_blank" rel="noopener">NISAR (NASA-ISRO)</a></li>
             <li><a href="https://sentinels.copernicus.eu/" target="_blank" rel="noopener">Sentinel-1 (ESA)</a></li>
@@ -128,7 +122,7 @@
           </ul>
         </div>
       </div>
-      <p class="pie__legal" data-i18n="comun.pie_legal">Datos abiertos · Hecho en Guatemala 🇬🇹</p>
+      <p class="pie__legal" data-i18n="comun.pie_legal">Open data · Made in Guatemala 🇬🇹</p>
     </div>
   </footer>
 
