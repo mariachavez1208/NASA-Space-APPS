@@ -20,10 +20,13 @@ de la misión **NASA-ISRO NISAR** para mostrar los cambios en el territorio de *
 ├── contribuir.html   Formulario para subir datos
 ├── css/
 │   └── styles.css    Estilos (la paleta de colores está en :root)
+├── data/
+│   └── asf-escenas-2026-11-14.csv   Escenas NISAR y Sentinel-1 encontradas en ASF
+├── img/radar/        Vistas previas de radar optimizadas (WebP)
 └── js/
-    ├── datos.js      Zonas y capas del mapa (datos de ejemplo)
-    ├── mapa.js       Mapa con Leaflet
-    ├── i18n.js       Traducciones de la interfaz
+    ├── datos.js      Lugares, imágenes del mapa, galería y escenas
+    ├── mapa.js       Mapa (Leaflet), galería y tabla de escenas
+    ├── i18n.js       Traducciones español / inglés
     └── main.js       Menú, idioma, narración y formulario
 ```
 
@@ -42,10 +45,23 @@ y entra a http://localhost:8000.
 Toda la paleta está en las variables de `css/styles.css` → sección **1. Paleta de colores**.
 Cambia esos valores y se aplican en todo el sitio.
 
+## Datos
+
+- **NISAR (L-SAR)**: escenas GSLC de octubre y noviembre de 2026 (órbitas 134 ascendente y 127 descendente).
+  Las vistas previas GCOV y GSLC del 2 de noviembre de 2026 están en la galería.
+- **Sentinel-1A (C-SAR)**: escenas GRD de 2016 como referencia de "antes". Las de febrero y septiembre
+  se pueden poner encima del mapa; su ubicación se calcula con las esquinas que trae el CSV, así que es aproximada.
+- Los archivos originales (.h5 / .zip, de 1 a 24 GB) no están en el repo; la tabla del mapa enlaza a ASF.
+
+## Idiomas
+
+Todos los textos están en `js/i18n.js` (español e inglés). En el HTML se marcan con `data-i18n="clave"`.
+Para agregar un texto nuevo: ponle una clave en el HTML y agrégala en `es` y `en`.
+
 ## Pendiente
 
 - [ ] Paleta de colores final
-- [ ] Conectar datos reales de NISAR (y Sentinel-1 como referencia)
+- [ ] Procesar los archivos NISAR completos para detectar cambios (no solo vistas previas)
 - [ ] Traducciones a Q'eqchi' y Garífuna con hablantes de la comunidad
 - [ ] Backend para recibir los aportes del formulario
 - [ ] Vista "antes y después" de imágenes de radar

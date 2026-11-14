@@ -224,8 +224,8 @@ a:hover { color: var(--color-primario); }
   position: relative;
   color: var(--color-superficie);
   background:
-    linear-gradient(120deg, rgba(20, 63, 49, 0.92), rgba(42, 140, 158, 0.78)),
-    radial-gradient(circle at 80% 30%, var(--color-acento), transparent 45%),
+    linear-gradient(120deg, rgba(20, 63, 49, 0.93), rgba(20, 63, 49, 0.7) 55%, rgba(42, 140, 158, 0.45)),
+    url("../img/radar/sentinel1_2016-02-14.webp") center / cover no-repeat,
     var(--color-primario);
   padding: clamp(4rem, 10vw, 7.5rem) 0;
 }
@@ -308,6 +308,7 @@ a:hover { color: var(--color-primario); }
 }
 .panel-capas fieldset { border: none; margin: 0 0 1.25rem; padding: 0; }
 .panel-capas legend { font-weight: 700; margin-bottom: 0.6rem; }
+.panel-capas .aviso { margin: 0; }
 
 .capa {
   display: flex;
@@ -323,13 +324,6 @@ a:hover { color: var(--color-primario); }
   height: 14px;
   border-radius: 50%;
   flex-shrink: 0;
-}
-
-.linea-tiempo label { display: block; font-weight: 700; margin-bottom: 0.4rem; }
-.linea-tiempo input[type="range"] { width: 100%; accent-color: var(--color-acento); }
-.linea-tiempo__valor {
-  font: 700 1.6rem var(--fuente-titulos);
-  color: var(--color-primario);
 }
 
 .aviso {
@@ -415,8 +409,81 @@ a:hover { color: var(--color-primario); }
   font-size: 0.85rem;
 }
 
-/* ---------- 11. Responsive ---------- */
+/* ---------- 11. Galería de radar, colores y tabla ---------- */
+.etiqueta--clara { color: var(--color-acento); }
+.centrado { text-align: center; }
+.centrado .seccion__intro { margin-inline: auto; }
+
+.control-rango { display: block; margin: 0.75rem 0; font-size: 0.95rem; }
+.control-rango input { width: 100%; accent-color: var(--color-acento); }
+
+.colores {
+  background: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.colores ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.colores li { display: flex; align-items: center; gap: 0.6rem; }
+.muestra {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.galeria {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+.imagen-radar { margin: 0; padding: 0; overflow: hidden; }
+.imagen-radar img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #0b0f0e;
+}
+.imagen-radar figcaption { padding: 1.25rem 1.5rem 1.5rem; }
+.imagen-radar__meta { font-size: 0.9rem; color: var(--color-texto-suave); }
+
+.tabla-envoltura {
+  overflow-x: auto;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+}
+.tabla { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.tabla th,
+.tabla td { padding: 0.75rem 1rem; text-align: left; white-space: nowrap; }
+.tabla thead { background: var(--color-primario); color: var(--color-superficie); }
+.tabla tbody tr:nth-child(even) { background: var(--color-fondo); }
+
+.aviso--flotante {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  max-width: 340px;
+  z-index: 999;
+  background: var(--color-superficie);
+  box-shadow: var(--sombra);
+}
+
+.leaflet-popup-content p { margin: 0.4rem 0 0.6rem; }
+
+/* ---------- 12. Responsive ---------- */
 @media (max-width: 900px) {
+  .galeria { grid-template-columns: 1fr; }
   .mapa-layout { grid-template-columns: 1fr; }
   .mapa { height: 420px; }
   .pie__rejilla { grid-template-columns: 1fr; }
