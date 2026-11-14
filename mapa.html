@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapa · Izabal Vivo</title>
+  <title data-i18n="mapa.titulo_pagina">Mapa · Izabal Vivo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
@@ -11,13 +11,13 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+  <a class="saltar-contenido" href="#contenido" data-i18n="comun.saltar">Saltar al contenido</a>
 
   <header class="encabezado">
     <div class="contenedor encabezado__fila">
       <a class="logo" href="index.html"><span class="logo__icono" aria-hidden="true">🛰️</span> Izabal Vivo</a>
-      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button>
-      <nav class="nav" id="nav" aria-label="Principal">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:comun.menu">☰</button>
+      <nav class="nav" id="nav">
         <ul class="nav__lista">
           <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
           <li><a href="mapa.html" aria-current="page" data-i18n="nav.mapa">Mapa</a></li>
@@ -27,7 +27,7 @@
       </nav>
       <label class="idioma">
         <span aria-hidden="true">🌐</span>
-        <select id="selector-idioma" aria-label="Elegir idioma">
+        <select id="selector-idioma" data-i18n-attr="aria-label:comun.idioma">
           <option value="es">Español</option>
           <option value="q">Q'eqchi'</option>
           <option value="cab">Garífuna</option>
@@ -37,45 +37,116 @@
     </div>
   </header>
 
-  <main id="contenido" class="seccion">
-    <div class="contenedor">
-      <span class="etiqueta">Explora Izabal</span>
-      <h1 data-i18n="mapa.titulo">Mapa de cambios en el territorio</h1>
-      <p class="seccion__intro">
-        Elige qué quieres ver y mueve la barra de años para comparar.
-        Toca cualquier punto para saber qué cambió en ese lugar.
-      </p>
+  <main id="contenido">
+    <section class="seccion">
+      <div class="contenedor">
+        <span class="etiqueta" data-i18n="mapa.etiqueta">Explora Izabal</span>
+        <h1 data-i18n="mapa.titulo">Mapa de cambios en el territorio</h1>
+        <p class="seccion__intro" data-i18n="mapa.intro">Elige qué quieres ver. Pon una imagen de radar encima del mapa y toca los puntos para saber qué observar en cada lugar.</p>
 
-      <div class="mapa-layout">
-        <aside class="panel-capas" aria-label="Opciones del mapa">
-          <fieldset>
-            <legend>¿Qué quieres ver?</legend>
-            <div id="lista-capas"></div>
-          </fieldset>
+        <div class="mapa-layout">
+          <aside class="panel-capas">
+            <fieldset>
+              <legend data-i18n="mapa.imagen">Imagen de radar</legend>
+              <div id="lista-imagenes"></div>
+              <label class="control-rango" for="opacidad">
+                <span data-i18n="mapa.opacidad">Intensidad de la imagen</span>
+                <input type="range" id="opacidad" min="0.1" max="1" step="0.05" value="0.75">
+              </label>
+              <label class="capa">
+                <input type="checkbox" id="ver-huellas">
+                <span data-i18n="mapa.huellas">Mostrar el área que cubre cada escena</span>
+              </label>
+            </fieldset>
 
-          <div class="linea-tiempo">
-            <label for="anio">Año</label>
-            <div class="linea-tiempo__valor" id="anio-valor">2026</div>
-            <input type="range" id="anio" min="2016" max="2026" step="1" value="2026">
+            <fieldset>
+              <legend data-i18n="mapa.lugares">Lugares para observar</legend>
+              <div id="lista-capas"></div>
+            </fieldset>
+
+            <p class="aviso" data-i18n="mapa.aviso">📍 La posición de las imágenes sobre el mapa es aproximada (calculada con las esquinas de cada escena). Las imágenes de NISAR están en la galería de abajo.</p>
+          </aside>
+
+          <div>
+            <div id="mapa" class="mapa" role="region" data-i18n-attr="aria-label:mapa.aria"></div>
+            <div class="leyenda" id="leyenda"></div>
           </div>
-
-          <p class="aviso" style="margin-top: 1.5rem">
-            ⚠️ Por ahora el mapa muestra <strong>datos de ejemplo</strong>.
-            Pronto conectaremos los datos reales del radar NISAR.
-          </p>
-        </aside>
-
-        <div>
-          <div id="mapa" class="mapa" role="region" aria-label="Mapa interactivo de Izabal"></div>
-          <div class="leyenda" id="leyenda"></div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- GALERÍA DE IMÁGENES DE RADAR -->
+    <section class="seccion seccion--alterna">
+      <div class="contenedor">
+        <span class="etiqueta" data-i18n="galeria.etiqueta">Imágenes reales</span>
+        <h2 data-i18n="galeria.titulo">Así ve el radar a Izabal</h2>
+        <p class="seccion__intro" data-i18n="galeria.intro">Estas imágenes vienen de los satélites NISAR (2026) y Sentinel-1 (2016). Los colores no son los que verías con tus ojos: cada color indica un tipo de superficie.</p>
+
+        <div class="colores">
+          <h3 data-i18n="colores.titulo">¿Cómo leer los colores?</h3>
+          <ul>
+            <li><i class="muestra" style="background:#3fbf3f"></i><span data-i18n="colores.verde">Verde: bosque y vegetación</span></li>
+            <li><i class="muestra" style="background:#0d1b4d"></i><span data-i18n="colores.azul">Azul oscuro o negro: agua</span></li>
+            <li><i class="muestra" style="background:#e8c34a"></i><span data-i18n="colores.amarillo">Amarillo y naranja: suelo descubierto, cultivos o poblados</span></li>
+            <li><i class="muestra" style="background:#d58ad6"></i><span data-i18n="colores.rosado">Rosado (NISAR): terrenos abiertos</span></li>
+          </ul>
+        </div>
+
+        <div class="galeria" id="galeria"></div>
+      </div>
+    </section>
+
+    <!-- TABLA DE ESCENAS -->
+    <section class="seccion">
+      <div class="contenedor">
+        <span class="etiqueta" data-i18n="escenas.etiqueta">Para investigadores</span>
+        <h2 data-i18n="escenas.titulo">Datos usados</h2>
+        <p class="seccion__intro" data-i18n="escenas.intro">Escenas encontradas en el archivo de datos de ASF (Alaska Satellite Facility). Los archivos originales son muy pesados; aquí puedes descargarlos.</p>
+        <div class="tabla-envoltura">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th data-i18n="escenas.col_satelite">Satélite</th>
+                <th data-i18n="escenas.col_producto">Producto</th>
+                <th data-i18n="escenas.col_fecha">Fecha</th>
+                <th data-i18n="escenas.col_orbita">Órbita</th>
+                <th data-i18n="escenas.col_tam">Tamaño</th>
+                <th data-i18n="escenas.col_descarga">Descarga</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-escenas"></tbody>
+          </table>
+        </div>
+        <p style="margin-top: 1.25rem"><a class="boton boton--contorno" href="data/asf-escenas-2026-11-14.csv" download data-i18n="escenas.csv">Descargar la lista completa (CSV)</a></p>
+      </div>
+    </section>
   </main>
 
   <footer class="pie">
     <div class="contenedor">
-      <p class="pie__legal">Izabal Vivo · NASA Space Apps Challenge · Datos abiertos · Hecho en Guatemala 🇬🇹</p>
+      <div class="pie__rejilla">
+        <div>
+          <h3>Izabal Vivo</h3>
+          <p data-i18n="comun.pie_desc">Proyecto para el NASA Space Apps Challenge. Datos de radar de la misión NASA-ISRO NISAR, explicados para todo público.</p>
+        </div>
+        <div>
+          <h3 data-i18n="comun.pie_explorar">Explorar</h3>
+          <ul>
+            <li><a href="mapa.html" data-i18n="nav.mapa">Mapa</a></li>
+            <li><a href="aprende.html" data-i18n="nav.aprende">Aprende</a></li>
+            <li><a href="contribuir.html" data-i18n="nav.contribuir">Contribuir</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="comun.pie_fuentes">Fuentes</h3>
+          <ul>
+            <li><a href="https://nisar.jpl.nasa.gov/" target="_blank" rel="noopener">NISAR (NASA-ISRO)</a></li>
+            <li><a href="https://sentinels.copernicus.eu/" target="_blank" rel="noopener">Sentinel-1 (ESA)</a></li>
+            <li><a href="https://search.asf.alaska.edu/" target="_blank" rel="noopener">ASF Data Search</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="pie__legal" data-i18n="comun.pie_legal">Datos abiertos · Hecho en Guatemala 🇬🇹</p>
     </div>
   </footer>
 

@@ -14,34 +14,51 @@
 
   /* ---------- Idioma ---------- */
   const selector = document.getElementById("selector-idioma");
-  let idioma = localStorageGet("idioma") || "es";
 
   function aplicarIdioma(cod) {
-    const dic = TRADUCCIONES[cod] || {};
-    document.querySelectorAll("[data-i18n]").forEach((el) => {
-      const clave = el.dataset.i18n;
-      el.textContent = dic[clave] || TRADUCCIONES.es[clave] || el.textContent;
-    });
-    document.documentElement.lang = cod === "en" ? "en" : "es";
+    IDIOMA_ACTUAL = TRADUCCIONES[cod] ? cod : "es";
 
-    if ((cod === "q" || cod === "cab") && !sessionStorageGet("aviso-" + cod)) {
-      alertaSuave("La traducción a este idioma está en proceso. Por ahora verás el texto en español.");
-      sessionStorageSet("aviso-" + cod, "1");
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      el.textContent = t(el.dataset.i18n);
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      el.innerHTML = t(el.dataset.i18nHtml);
+    });
+    // Formato: data-i18n-attr="aria-label:clave;title:otra"
+    document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+      el.dataset.i18nAttr.split(";").forEach((par) => {
+        const [attr, clave] = par.split(":");
+        el.setAttribute(attr.trim(), t(clave.trim()));
+      });
+    });
+
+    document.documentElement.lang = IDIOMA_ACTUAL === "en" ? "en" : "es";
+    if (selector) selector.value = IDIOMA_ACTUAL;
+
+    // Avisar a otros scripts (mapa, galería) para que se redibujen
+    document.dispatchEvent(new CustomEvent("idioma-cambiado"));
+
+    if ((cod === "q" || cod === "cab") && !storage(sessionStorage, "aviso-" + cod)) {
+      alertaSuave(t("comun.aviso_idioma"));
+      storage(sessionStorage, "aviso-" + cod, "1");
     }
   }
 
   if (selector) {
-    selector.value = idioma;
     selector.addEventListener("change", () => {
-      idioma = selector.value;
-      localStorageSet("idioma", idioma);
-      aplicarIdioma(idioma);
+      if (window.speechSynthesis) speechSynthesis.cancel();
+      storage(localStorage, "idioma", selector.value);
+      aplicarIdioma(selector.value);
     });
   }
-  aplicarIdioma(idioma);
+
+  // Esperar a que carguen los demás scripts antes de traducir
+  document.addEventListener("DOMContentLoaded", () => {
+    aplicarIdioma(storage(localStorage, "idioma") || "es");
+  });
 
   /* ---------- Narración en voz alta ---------- */
-  // Funciona con botones data-leer="#id" (lee ese elemento)
+  // Botones con data-leer="#id" (lee ese elemento)
   // o data-texto="..." (lee ese texto, usado en el mapa).
   document.addEventListener("click", (e) => {
     const boton = e.target.closest(".boton-escuchar");
@@ -56,7 +73,11 @@
     let texto = boton.dataset.texto;
     if (!texto && boton.dataset.leer) {
       const origen = document.querySelector(boton.dataset.leer);
-      texto = origen ? origen.innerText.replace("🔊 Escuchar", "") : "";
+      if (origen) {
+        const copia = origen.cloneNode(true);
+        copia.querySelectorAll(".boton-escuchar").forEach((b) => b.remove());
+        texto = copia.textContent.replace(/\s+/g, " ").trim();
+      }
     }
     if (!texto) return;
 
@@ -65,7 +86,7 @@
       .forEach((b) => b.setAttribute("aria-pressed", "false"));
 
     const voz = new SpeechSynthesisUtterance(texto);
-    voz.lang = VOZ_IDIOMA[idioma] || "es-GT";
+    voz.lang = VOZ_IDIOMA[IDIOMA_ACTUAL] || "es-GT";
     voz.rate = 0.95;
     voz.onend = () => boton.setAttribute("aria-pressed", "false");
     boton.setAttribute("aria-pressed", "true");
@@ -79,10 +100,10 @@
       e.preventDefault();
       const mensaje = document.getElementById("mensaje-form");
       if (!form.checkValidity()) {
-        mensaje.textContent = "⚠️ Revisa que todos los campos obligatorios estén completos.";
+        mensaje.textContent = t("form.error");
         return;
       }
-      mensaje.textContent = "✅ ¡Gracias! Recibimos tu aporte y lo revisaremos pronto.";
+      mensaje.textContent = t("form.ok");
       form.reset();
     });
   }
@@ -90,15 +111,20 @@
   /* ---------- Utilidades ---------- */
   function alertaSuave(texto) {
     const div = document.createElement("div");
-    div.className = "aviso";
+    div.className = "aviso aviso--flotante";
     div.setAttribute("role", "status");
-    div.style.cssText = "position:fixed;bottom:1rem;right:1rem;max-width:340px;z-index:999;background:#fff;box-shadow:var(--sombra)";
     div.textContent = texto;
     document.body.appendChild(div);
     setTimeout(() => div.remove(), 6000);
   }
-  function localStorageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
-  function localStorageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }
-  function sessionStorageGet(k) { try { return sessionStorage.getItem(k); } catch { return null; } }
-  function sessionStorageSet(k, v) { try { sessionStorage.setItem(k, v); } catch {} }
+
+  // Lee o guarda en localStorage/sessionStorage sin romper si no está disponible
+  function storage(tipo, clave, valor) {
+    try {
+      if (valor === undefined) return tipo.getItem(clave);
+      tipo.setItem(clave, valor);
+    } catch {
+      return null;
+    }
+  }
 })();
