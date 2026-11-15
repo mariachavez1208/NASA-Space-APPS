@@ -4,11 +4,14 @@
      (texto con etiquetas), data-i18n-attr="atributo:clave".
    - En JS: t("clave").
    - El sitio está en inglés por defecto. Los botones de idioma cambian
-     entre inglés (en), español (es) y Q'eqchi' (kek).
+     entre inglés (en), español (es), Q'eqchi' (kek) y Kaqchikel (cak).
    - Q'eqchi': solo palabras y títulos cortos, tomados del vocabulario
      "Ch'ina Tusleb' Aatin Q'eqchi' – Kaxlan Aatin" (Cu Cab y Cu Cab,
      Universidad Rafael Landívar, 1998). Lo que no está en "kek" se
      muestra en español. Los párrafos deben revisarlos hablantes de Q'eqchi'.
+   - Kaqchikel: solo palabras y títulos cortos, tomados del vocabulario
+     "Kaqchikel choltzij, kolon chuqa' k'ak'a' taq tzij" (Kaqchikel
+     Cholchi', ALMG). Lo que no está en "cak" se muestra en español.
    ========================================================= */
 
 const TRADUCCIONES = {
@@ -64,6 +67,7 @@ const TRADUCCIONES = {
     "idiomas.texto": "Queremos que las familias de Izabal puedan leer y escuchar esta información en su propio idioma.",
     "idiomas.es": "Disponible.",
     "idiomas.q": "Disponible en parte: menú, títulos y palabras clave. Los textos largos se revisarán con hablantes de la comunidad.",
+    "idiomas.kaq": "Disponible en parte: menú, títulos y palabras clave. Los textos largos se revisarán con hablantes de la comunidad.",
     "idiomas.cab": "Traducción en proceso con hablantes de la comunidad.",
     "idiomas.en": "Disponible, para investigadores y visitantes.",
     "cta.titulo": "¿Tienes datos o conoces tu comunidad?",
@@ -71,7 +75,7 @@ const TRADUCCIONES = {
     "cta.boton": "Quiero contribuir",
 
     /* Mapa */
-    "mapa.titulo_pagina": "Mapa · Izabal Vivo",
+    "mapa.titulo_pagina": "Mapa · Behind the Green",
     "mapa.etiqueta": "Explora Izabal",
     "mapa.titulo": "Mapa de cambios en el territorio",
     "mapa.intro": "Elige qué quieres ver. Pon una imagen de radar encima del mapa y toca los puntos para saber qué observar en cada lugar.",
@@ -107,7 +111,7 @@ const TRADUCCIONES = {
     "escenas.csv": "Descargar la lista completa (CSV)",
 
     /* Aprende */
-    "aprende.titulo_pagina": "Aprende · Izabal Vivo",
+    "aprende.titulo_pagina": "Aprende · Behind the Green",
     "aprende.etiqueta": "Sin palabras difíciles",
     "aprende.titulo": "Aprende cómo vemos la Tierra desde el espacio",
     "aprende.intro": "No necesitas ser científico para entender esto. Aquí te lo explicamos paso a paso.",
@@ -137,7 +141,7 @@ const TRADUCCIONES = {
     "glosario.abiertos_p": "Información que cualquier persona puede ver, usar y compartir gratis.",
 
     /* Contribuir */
-    "contribuir.titulo_pagina": "Contribuir · Izabal Vivo",
+    "contribuir.titulo_pagina": "Contribuir · Behind the Green",
     "contribuir.etiqueta": "Ciencia colaborativa",
     "contribuir.titulo": "Comparte datos sobre Izabal",
     "contribuir.intro": "Si eres investigador, estudiante o parte de una comunidad, puedes aportar datos, estudios o reportes. Revisamos cada aporte antes de publicarlo en el mapa.",
@@ -213,13 +217,14 @@ const TRADUCCIONES = {
     "idiomas.texto": "We want families in Izabal to be able to read and listen to this information in their own language.",
     "idiomas.es": "Available.",
     "idiomas.q": "Partly available: menu, titles and key words. Longer texts will be reviewed with community speakers.",
+    "idiomas.kaq": "Partly available: menu, titles and key words. Longer texts will be reviewed with community speakers.",
     "idiomas.cab": "Translation in progress with community speakers.",
     "idiomas.en": "Available, for researchers and visitors.",
     "cta.titulo": "Do you have data or know your community?",
     "cta.texto": "Researchers, students and community leaders can share information so we all better understand what is happening in Izabal.",
     "cta.boton": "I want to contribute",
 
-    "mapa.titulo_pagina": "Map · Izabal Vivo",
+    "mapa.titulo_pagina": "Map · Behind the Green",
     "mapa.etiqueta": "Explore Izabal",
     "mapa.titulo": "Map of land changes",
     "mapa.intro": "Choose what you want to see. Put a radar image on top of the map and tap the dots to learn what to look for in each place.",
@@ -254,7 +259,7 @@ const TRADUCCIONES = {
     "escenas.enlace": "Download",
     "escenas.csv": "Download the full list (CSV)",
 
-    "aprende.titulo_pagina": "Learn · Izabal Vivo",
+    "aprende.titulo_pagina": "Learn · Behind the Green",
     "aprende.etiqueta": "No difficult words",
     "aprende.titulo": "Learn how we see Earth from space",
     "aprende.intro": "You don't need to be a scientist to understand this. We explain it step by step.",
@@ -283,7 +288,7 @@ const TRADUCCIONES = {
     "glosario.abiertos_t": "Open data",
     "glosario.abiertos_p": "Information that anyone can see, use and share for free.",
 
-    "contribuir.titulo_pagina": "Contribute · Izabal Vivo",
+    "contribuir.titulo_pagina": "Contribute · Behind the Green",
     "contribuir.etiqueta": "Collaborative science",
     "contribuir.titulo": "Share data about Izabal",
     "contribuir.intro": "If you are a researcher, a student or part of a community, you can contribute data, studies or reports. We review every contribution before publishing it on the map.",
@@ -312,7 +317,7 @@ const TRADUCCIONES = {
   /* Q'eqchi' — palabras verificadas en el vocabulario de la URL (1998) */
   kek: {
     "comun.idiomas_aria": "Aatinob'aal",
-    "comun.aviso_kek": "Q'eqchi': los títulos y palabras clave están en Q'eqchi' según el vocabulario Q'eqchi'–Español de la Universidad Rafael Landívar (1998). Los textos largos se muestran en español mientras los revisan hablantes de la comunidad.",
+    "comun.aviso_idioma": "Q'eqchi': los títulos y palabras clave están en Q'eqchi' según el vocabulario Q'eqchi'–Español de la Universidad Rafael Landívar (1998). Los textos largos se muestran en español mientras los revisan hablantes de la comunidad.",
     "comun.escuchar": "🔊 Ab'ink",
     "nav.inicio": "Xtiklajik",
     "nav.mapa": "Reetalil li ruuchich'och'",
@@ -326,19 +331,54 @@ const TRADUCCIONES = {
     "glosario.satelite_t": "Aj b'e chahim",
     "glosario.humedal_t": "Saab' (humedal)",
     "galeria.satelite": "Aj b'e chahim",
+    "galeria.fecha": "Xkutankil",
+    "mapa.imagen": "Jalam'uuch",
+    "escenas.col_fecha": "Xkutankil",
+    "escenas.col_tam": "Xnimal",
     "form.nombre": "K'ab'a'",
     "form.otro": "Jalan",
     "form.enviar": "Taqlank",
     "form.ok": "✅ ¡B'anyox! Recibimos tu aporte y lo revisaremos pronto."
+  },
+
+  /* Kaqchikel — palabras verificadas en "Kaqchikel choltzij" (Kaqchikel Cholchi', ALMG) */
+  cak: {
+    "comun.idiomas_aria": "Ch'ab'äl",
+    "comun.aviso_idioma": "Kaqchikel: los títulos y palabras clave están en Kaqchikel según el vocabulario «Kaqchikel choltzij, kolon chuqa' k'ak'a' taq tzij» de Kaqchikel Cholchi' (ALMG). Los textos largos se muestran en español mientras los revisan hablantes de la comunidad.",
+    "comun.escuchar": "🔊 Ak'axanïk",
+    "comun.pie_explorar": "Kanoxïk",
+    "nav.inicio": "Tikirisanem",
+    "nav.mapa": "Tz'eteb'äl",
+    "nav.aprende": "Etamanïk",
+    "nav.contribuir": "To'ïk",
+    "tema.mineria": "Ya'ab'ajb'äl",
+    "tema.palma": "Tut (palma africana)",
+    "tema.bosque": "K'ichelaj",
+    "tema.agua": "Ya', saq'oq'",
+    "aprende.comunidades_t": "Amaq'",
+    "glosario.satelite_t": "Alch'umil",
+    "glosario.humedal_t": "Saq'oq' (humedal)",
+    "galeria.satelite": "Alch'umil",
+    "galeria.fecha": "Rajilab'al q'ij",
+    "mapa.imagen": "Wachib'äl",
+    "escenas.col_fecha": "Rajilab'al q'ij",
+    "escenas.col_orbita": "Setesurib'äl",
+    "escenas.col_tam": "Runimilem",
+    "escenas.col_descarga": "Qasaxïk",
+    "escenas.enlace": "Qasaxïk",
+    "form.nombre": "B'i'aj",
+    "form.correo": "Taqoya'l",
+    "form.otro": "Jun chik",
+    "form.enviar": "Taqonïk"
   }
 };
 
 // Idioma para la narración en voz alta
-// (no hay voz en Q'eqchi'; se usa la de español de Guatemala)
-const VOZ_IDIOMA = { es: "es-GT", en: "en-US", kek: "es-GT" };
+// (no hay voz en Q'eqchi' ni Kaqchikel; se usa la de español de Guatemala)
+const VOZ_IDIOMA = { es: "es-GT", en: "en-US", kek: "es-GT", cak: "es-GT" };
 
 // Si falta un texto, de qué idioma se toma
-const RESPALDO = { en: ["en"], es: ["es", "en"], kek: ["kek", "es", "en"] };
+const RESPALDO = { en: ["en"], es: ["es", "en"], kek: ["kek", "es", "en"], cak: ["cak", "es", "en"] };
 
 // Idioma por defecto del sitio: inglés
 const IDIOMA_POR_DEFECTO = "en";
@@ -355,7 +395,7 @@ function t(clave) {
   return clave;
 }
 
-// Elige el texto de un objeto { en, es, kek }
+// Elige el texto de un objeto { en, es, kek, cak }
 function tObj(obj) {
   for (const cod of RESPALDO[IDIOMA_ACTUAL] || ["en"]) {
     if (obj[cod]) return obj[cod];

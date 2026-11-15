@@ -2,15 +2,15 @@
    Datos del mapa
    Fuente: búsqueda en ASF Data Pool (data/asf-escenas-2026-11-14.csv)
    e imágenes de vista previa descargadas por el equipo.
-   Todos los textos visibles van en { es, en } (y kek cuando hay palabra verificada).
+   Todos los textos visibles van en { es, en } (y kek o cak cuando hay palabra verificada).
    ========================================================= */
 
 /* Categorías de lugares (colores de la leyenda) */
 const CAPAS = {
-  mineria: { icono: "⛏️", color: "#c0533a", nombre: { es: "Minería", en: "Mining", kek: "Miin" } },
-  palma:   { icono: "🌴", color: "#e0a43a", nombre: { es: "Palma africana", en: "Oil palm", kek: "Kala' (palma africana)" } },
-  bosque:  { icono: "🌳", color: "#1f5f4a", nombre: { es: "Bosques", en: "Forests", kek: "K'iche'" } },
-  agua:    { icono: "💧", color: "#2a8c9e", nombre: { es: "Agua y humedales", en: "Water and wetlands", kek: "Ha', saab'" } }
+  mineria: { icono: "⛏️", color: "#c0533a", nombre: { es: "Minería", en: "Mining", kek: "Miin", cak: "Ya'ab'ajb'äl" } },
+  palma:   { icono: "🌴", color: "#e0a43a", nombre: { es: "Palma africana", en: "Oil palm", kek: "Kala' (palma africana)", cak: "Tut (palma africana)" } },
+  bosque:  { icono: "🌳", color: "#1f5f4a", nombre: { es: "Bosques", en: "Forests", kek: "K'iche'", cak: "K'ichelaj" } },
+  agua:    { icono: "💧", color: "#2a8c9e", nombre: { es: "Agua y humedales", en: "Water and wetlands", kek: "Ha', saab'", cak: "Ya', saq'oq'" } }
 };
 
 /* Lugares para observar en las imágenes (ubicaciones aproximadas) */

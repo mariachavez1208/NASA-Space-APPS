@@ -14,7 +14,7 @@
 
   /* ---------- Idioma ----------
      El sitio está en inglés. Los botones [data-idioma] cambian entre
-     inglés (en), español (es) y Q'eqchi' (kek); la elección se guarda
+     inglés (en), español (es), Q'eqchi' (kek) y Kaqchikel (cak); la elección se guarda
      para las demás páginas. */
   const botonesIdioma = document.querySelectorAll("[data-idioma]");
   const avisoIdioma = document.getElementById("aviso-idioma");
@@ -37,12 +37,12 @@
       });
     });
 
-    // En Q'eqchi' gran parte del texto sigue en español
+    // En Q'eqchi' y Kaqchikel gran parte del texto sigue en español
     document.documentElement.lang = IDIOMA_ACTUAL === "en" ? "en" : "es";
     botonesIdioma.forEach((b) => {
       b.setAttribute("aria-pressed", b.dataset.idioma === IDIOMA_ACTUAL);
     });
-    if (avisoIdioma) avisoIdioma.hidden = IDIOMA_ACTUAL !== "kek";
+    if (avisoIdioma) avisoIdioma.hidden = !["kek", "cak"].includes(IDIOMA_ACTUAL);
 
     // Avisar a otros scripts (mapa, galería) para que se redibujen
     document.dispatchEvent(new CustomEvent("idioma-cambiado"));
