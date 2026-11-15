@@ -8,7 +8,7 @@ de la misión **NASA-ISRO NISAR** para mostrar los cambios en el territorio de *
 
 - Mostrar los cambios de superficie con un mapa interactivo y una línea de tiempo.
 - Explicar la ciencia con lenguaje sencillo, íconos y colores claros.
-- Sitio en inglés con opción de español, Q'eqchi' y Kaqchikel (parcial), narración en voz alta y, a futuro, Garífuna.
+- Sitio en inglés con opción de español, Q'eqchi' y Kaqchikel (traducción preliminar), narración en voz alta y, a futuro, Garífuna.
 - Permitir que investigadores y comunidades suban nuevos datos de forma colaborativa.
 
 ## Estructura
@@ -60,19 +60,18 @@ a inglés, español, Q'eqchi' o Kaqchikel, y la elección se recuerda al pasar a
 
 - Todos los textos están en `js/i18n.js` (`en`, `es`, `kek` y `cak`). En el HTML se marcan con `data-i18n="clave"`.
 - Para agregar un texto nuevo: escríbelo en inglés en el HTML con su `data-i18n` y agrega la clave en `en` y `es`.
-- **Q'eqchi' (`kek`)**: solo menú, títulos y palabras clave, verificados en el vocabulario
-  *Ch'ina Tusleb' Aatin Q'eqchi' – Kaxlan Aatin* (Carlos H. Cu Cab y Mario R. Cu Cab, Universidad Rafael Landívar, 1998).
-  Lo que no tiene traducción en `kek` se muestra en español, con un aviso arriba de la página.
-  Los párrafos completos deben traducirlos o revisarlos hablantes de Q'eqchi'.
-- **Kaqchikel (`cak`)**: menú, títulos y palabras clave, verificados en
-  *Kaqchikel choltzij, kolon chuqa' k'ak'a' taq tzij* (Kaqchikel Cholchi', Academia de Lenguas Mayas de Guatemala).
-  Funciona igual que Q'eqchi': lo que no tiene traducción se muestra en español, con aviso.
+- **Q'eqchi' (`kek`) y Kaqchikel (`cak`)**: todo el sitio está traducido, incluidos los textos del mapa y la galería.
+  Es una **traducción preliminar**: las palabras salen de los vocabularios
+  *Ch'ina Tusleb' Aatin Q'eqchi' – Kaxlan Aatin* (Carlos H. Cu Cab y Mario R. Cu Cab, Universidad Rafael Landívar, 1998) y
+  *Kaqchikel choltzij, kolon chuqa' k'ak'a' taq tzij* (Kaqchikel Cholchi', Academia de Lenguas Mayas de Guatemala),
+  pero las frases deben revisarlas hablantes de cada idioma. En esos idiomas aparece un aviso arriba de la página.
+- Si falta una clave en `kek` o `cak`, se muestra en español.
 
 ## Pendiente
 
 - [ ] Paleta de colores final
 - [ ] Procesar los archivos NISAR completos para detectar cambios (no solo vistas previas)
-- [ ] Párrafos completos en Q'eqchi' y Kaqchikel revisados por hablantes de la comunidad
+- [ ] Revisión de la traducción Q'eqchi' y Kaqchikel con hablantes de la comunidad
 - [ ] Traducción a Garífuna
 - [ ] Backend para recibir los aportes del formulario
 - [ ] Vista "antes y después" de imágenes de radar

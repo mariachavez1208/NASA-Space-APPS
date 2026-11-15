@@ -37,8 +37,7 @@
       });
     });
 
-    // En Q'eqchi' y Kaqchikel gran parte del texto sigue en español
-    document.documentElement.lang = IDIOMA_ACTUAL === "en" ? "en" : "es";
+    document.documentElement.lang = IDIOMA_ACTUAL;
     botonesIdioma.forEach((b) => {
       b.setAttribute("aria-pressed", b.dataset.idioma === IDIOMA_ACTUAL);
     });
